@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-3000 Interactive Installation | V.H.S</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --white: #ffffff;
+            --near-black: #111111;
+            --mid-grey: #6e6e73;
+            --light-grey: #f5f5f7;
+            --accent: #0071e3;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--white);
+            color: var(--near-black);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            scroll-behavior: smooth;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.05;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 600;
+            letter-spacing: -0.025em;
+            line-height: 1.1;
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        h4 {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            line-height: 1.3;
+        }
+
+        p {
+            font-size: clamp(1rem, 1.5vw, 1.25rem);
+            font-weight: 400;
+            color: var(--mid-grey);
+            line-height: 1.7;
+        }
+
+        .label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--mid-grey);
+        }
+
+        /* Layout */
+        section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(3rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem);
+        }
+
+        .container {
+            max-width: 980px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .wide-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            background: linear-gradient(135deg, var(--white) 0%, var(--light-grey) 100%);
+        }
+
+        .hero h1 {
+            margin-bottom: 1.5rem;
+        }
+
+        .hero .tagline {
+            font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+            color: var(--mid-grey);
+            margin-bottom: 3rem;
+            font-weight: 400;
+        }
+
+        /* Stat Cards */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .stat-card {
+            background: var(--white);
+            border: 1px solid #d2d2d7;
+            border-radius: 18px;
+            padding: 2.5rem 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border-color: var(--accent);
+        }
+
+        .stat-number {
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.125rem;
+            color: var(--near-black);
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+
+        .stat-description {
+            font-size: 0.95rem;
+            color: var(--mid-grey);
+            line-height: 1.6;
+        }
+
+        /* Content Sections */
+        .content-block {
+            margin-bottom: 5rem;
+        }
+
+        .content-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+        }
+
+        .section-header .label {
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--accent), #86d3ff);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 1.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3.5rem;
+            top: 0.5rem;
+            width: 14px;
+            height: 14px;
+            background: var(--accent);
+            border: 3px solid var(--white);
+            border-radius: 50%;
+            box-shadow: 0 0 0 2px var(--accent);
+        }
+
+        .timeline-step {
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .timeline-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--near-black);
+        }
+
+        .timeline-description {
+            color: var(--mid-grey);
+            line-height: 1.7;
+        }
+
+        /* Tech Specs Grid */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .tech-item {
+            text-align: center;
+        }
+
+        .tech-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: var(--light-grey);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .tech-name {
+            font-weight: 600;
+            color: var(--near-black);
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-desc {
+            font-size: 0.9rem;
+            color: var(--mid-grey);
+        }
+
+        /* Feature List */
+        .feature-list {
+            display: grid;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-item {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 1.5rem;
+            align-items: start;
+        }
+
+        .feature-number {
+            width: 48px;
+            height: 48px;
+            background: var(--accent);
+            color: var(--white);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .feature-content h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-content p {
+            margin: 0;
+        }
+
+        /* Two Column Layout */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .two-col {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            background: var(--near-black);
+            color: var(--white);
+        }
+
+        .cta-section h2 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: #a1a1a6;
+            margin-bottom: 2.5rem;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .contact-card .label {
+            color: #a1a1a6;
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-card .value {
+            color: var(--white);
+            font-size: 1.125rem;
+            font-weight: 500;
+        }
+
+        .contact-card a {
+            color: var(--white);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .contact-card a:hover {
+            opacity: 0.7;
+        }
+
+        /* Spacing utilities */
+        .spacer-sm { height: 2rem; }
+        .spacer-md { height: 4rem; }
+        .spacer-lg { height: 6rem; }
+
+        /* Highlight text */
+        .highlight {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* Divider */
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #d2d2d7, transparent);
+            margin: 5rem 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 01. HERO / EXECUTIVE SUMMARY -->
+    <section class="hero">
+        <div class="container">
+            <span class="label">Experiential Marketing Technology</span>
+            <h1>T-3000</h1>
+            <p class="tagline">The Digital Mirror that solves survey fatigue and captures verified leads through interactive AR experiences</p>
+            <div class="spacer-md"></div>
+            <p style="max-width: 720px; margin: 0 auto;">A custom-built interactive installation combining <strong>UltraLeap skeletal hand tracking</strong>, <strong>TouchDesigner</strong>, and industrial-grade fabrication. Built in Vancouver. Designed for high-end experiential marketing campaigns where engagement equals revenue.</p>
+        </div>
+    </section>
+
+    <!-- 02. THE PROBLEM -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <span class="label">The Problem</span>
+                <h2>Static Booths Are Dying</h2>
+            </div>
+
+            <p style="margin-bottom: 3rem;">The traditional trade show booth is experiencing terminal decline. Digital advertising has collapsed under the weight of banner blindness and ad fatigue, while physical activations remain trapped in the analog era—static signage, clipboard surveys, and forgettable swag. The result is a catastrophic failure to capture attention or data.</p>
+
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="stat-number">86%</div>
+                    <div class="stat-label">Banner Blindness</div>
+                    <div class="stat-description">Consumers subconsciously ignore ad-like information, rendering traditional digital displays ineffective</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">0.06%</div>
+                    <div class="stat-label">Average CTR</div>
+                    <div class="stat-description">Only 6 out of 10,000 banner impressions result in a click—a 99.94% failure rate</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$463</div>
+                    <div class="stat-label">PPC Cost Per Lead</div>
+                    <div class="stat-description">B2B digital advertising costs continue to skyrocket while conversion quality plummets</div>
+                </div>
+            </div>
+
+            <div class="spacer-md"></div>
+            <p>Brands are trapped between two expensive failures: digital ads that nobody sees, and physical booths that nobody remembers. The T-3000 breaks this deadlock by creating <span class="highlight">a physical experience that generates digital data</span>—without relying on surveys, forms, or clipboard fatigue.</p>
+        </div>
+    </section>
+
+    <!-- 03. THE SOLUTION -->
+    <section style="background: var(--light-grey);">
+        <div class="container">
+            <div class="section-header">
+                <span class="label">The Solution</span>
+                <h2>A Digital Mirror That Captures Leads</h2>
+            </div>
+
+            <div class="two-col">
+                <div>
+                    <h3 style="margin-bottom: 1.5rem;">What It Is</h3>
+                    <p>The T-3000 is a repurposed arcade cabinet transformed into an augmented reality experience platform. Users step in front of the mirror-like display, and the system tracks their hands, face, and body movements in real-time. They manipulate virtual objects, explore fluid dynamics, and create digital art with their gestures—no controllers, no apps, no friction.</p>
+                    <div class="spacer-sm"></div>
+                    <p>When they're done playing, they scan a QR code to receive their personalized photo. That scan is the lead capture. No clipboard. No form. No "survey fatigue." Just pure experiential value exchange.</p>
+                </div>
+                <div>
+                    <h3 style="margin-bottom: 1.5rem;">Why It Works</h3>
+                    <p style="margin-bottom: 1rem;"><strong>Gamification drives 2x conversions.</strong> Users spend an average of 4.5 minutes with gamified content versus 1.3 minutes with static displays. The T-3000 leverages variable reward psychology—the same dopamine triggers as slot machines—to create heightened engagement.</p>
+                    <p style="margin-bottom: 1rem;"><strong>Nostalgia bypasses skepticism.</strong> By wrapping sophisticated technology in a retro arcade shell, the T-3000 taps into Gen Z's anemoia and Millennial nostalgia, disarming the natural resistance to "marketing kiosks."</p>
+                    <p><strong>Zero-Party Data is the new gold.</strong> With third-party cookies dying, brands need data that consumers <em>intentionally</em> share. The T-3000's QR code exchange delivers verified, compliant, high-fidelity leads.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 04. TECH SPECS -->
+    <section>
+        <div class="wide-container">
+            <div class="section-header">
+                <span class="label">Technical Specifications</span>
+                <h2>Industrial-Grade Hardware Meets Cutting-Edge Software</h2>
+            </div>
+
+            <p style="max-width: 820px; margin-bottom: 3rem;">The T-3000 is not a prototype. It's a battle-tested platform that premiered at Bass Coast 2022 and has undergone continuous evolution. The 2024 iteration represents a fundamental leap in capability, integrating best-in-class tracking hardware with custom TouchDesigner development.</p>
+
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <div class="tech-icon">⚡</div>
+                    <div class="tech-name">UltraLeap Leap Motion 2 (×2)</div>
+                    <div class="tech-desc">Sub-millimeter skeletal hand tracking at 90Hz refresh rate</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">🎨</div>
+                    <div class="tech-name">TouchDesigner</div>
+                    <div class="tech-desc">Real-time generative visuals, facial tracking, posture analysis</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">💡</div>
+                    <div class="tech-name">Addressable LED Matrix</div>
+                    <div class="tech-desc">Rear-facing array creates 360° visual feedback loop</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">🖥️</div>
+                    <div class="tech-name">HD Front Display</div>
+                    <div class="tech-desc">Upgraded high-definition screen for crystal-clear AR compositing</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">🔨</div>
+                    <div class="tech-name">CNC Fabrication</div>
+                    <div class="tech-desc">Custom-milled in Vancouver using Fusion 360 CAD/CAM workflow</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">🔌</div>
+                    <div class="tech-name">DMX Lighting Control</div>
+                    <div class="tech-desc">Enttec USB Pro for synchronized base perimeter neon flex LEDs</div>
+                </div>
+            </div>
+
+            <div class="spacer-lg"></div>
+
+            <div class="content-block">
+                <h3 style="margin-bottom: 2rem;">Offline-First Architecture</h3>
+                <p>Live events are hostile network environments. At major festivals, bandwidth demand can reach 2-5 terabytes per day, causing cellular networks to collapse under congestion. The T-3000 is engineered with <strong>offline-first architecture</strong>: all data capture, media processing, and AI filtering happens locally on the device's hard drive. Cloud synchronization occurs asynchronously when connectivity is restored. This guarantees 100% data integrity even in network dead zones—addressing the number one anxiety of event organizers.</p>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="content-block">
+                <h3 style="margin-bottom: 1.5rem;">Power Requirements</h3>
+                <p style="margin-bottom: 2rem;">The installation requires a standard 120V power supply with a peak consumption of approximately <strong>12 amps</strong>:</p>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 1rem; background: var(--light-grey); border-radius: 8px; margin-bottom: 0.75rem;">
+                        <strong>Tower PC (5A)</strong> – Processing and interactive software
+                    </li>
+                    <li style="padding: 1rem; background: var(--light-grey); border-radius: 8px; margin-bottom: 0.75rem;">
+                        <strong>HD LED Screen (3A)</strong> – High-definition visual display
+                    </li>
+                    <li style="padding: 1rem; background: var(--light-grey); border-radius: 8px; margin-bottom: 0.75rem;">
+                        <strong>LED Pixel Array (2A)</strong> – Dynamic rear visual feedback system
+                    </li>
+                    <li style="padding: 1rem; background: var(--light-grey); border-radius: 8px;">
+                        <strong>LED Strip Lighting (2A)</strong> – Ground and perimeter accent lighting
+                    </li>
+                </ul>
+            </div>
+
+            <div class="spacer-md"></div>
+
+            <div style="background: var(--light-grey); padding: 2.5rem; border-radius: 18px;">
+                <h4 style="margin-bottom: 1rem;">Physical Footprint</h4>
+                <p style="margin: 0; font-size: 1.125rem; color: var(--near-black);"><strong>150cm W × 150cm L × 200cm H</strong> (including reinforced base)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 05. USER JOURNEY -->
+    <section style="background: var(--light-grey);">
+        <div class="container">
+            <div class="section-header">
+                <span class="label">Experience Design</span>
+                <h2>The User Journey</h2>
+            </div>
+
+            <p style="margin-bottom: 3rem;">The T-3000 creates a frictionless loop that converts curiosity into data capture in under 60 seconds. Every interaction is designed to maximize dwell time while minimizing user effort.</p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-step">Step 01</div>
+                    <div class="timeline-title">Discovery</div>
+                    <div class="timeline-description">User approaches the arcade cabinet, drawn by the retro aesthetic and visible activity. The glowing LED array on the rear creates ambient curiosity ("What is that?").</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-step">Step 02</div>
+                    <div class="timeline-title">Engagement</div>
+                    <div class="timeline-description">User steps in front of the HD screen. The UltraLeap sensors immediately detect their hands and face. They see themselves augmented with real-time digital effects—manipulating particles, triggering fluid simulations, or exploring virtual objects with natural gestures.</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-step">Step 03</div>
+                    <div class="timeline-title">Immersion</div>
+                    <div class="timeline-description">Average dwell time: <strong>4.5 minutes</strong>. The gamified interface leverages variable reward loops. The rear LED matrix creates a 360° spectacle, attracting secondary foot traffic. Every gesture creates instant visual feedback, maintaining a state of flow.</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-step">Step 04</div>
+                    <div class="timeline-title">Capture</div>
+                    <div class="timeline-description">System generates a personalized photo of the user's AR creation. A QR code appears: "Scan to keep your photo." User scans. <strong>Lead captured.</strong> Name, email, phone number collected via a mobile-optimized landing page. Zero friction. Zero survey fatigue.</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-step">Step 05</div>
+                    <div class="timeline-title">Amplification</div>
+                    <div class="timeline-description">72% of event attendees post event-related content to social media. The T-3000 photo is instantly shareable—brand logo embedded, event hashtag included. User becomes a distribution node, extending reach far beyond the physical booth.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 06. DATA CAPTURE STRATEGY -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <span class="label">Lead Generation</span>
+                <h2>Data Capture Economics</h2>
+            </div>
+
+            <p style="margin-bottom: 3rem;">Traditional digital advertising is hemorrhaging efficiency. The T-3000 offers a massive cost-per-lead arbitrage opportunity by replacing expensive, low-fidelity digital ads with high-touch, high-conversion physical experiences.</p>
+
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="stat-number">$20</div>
+                    <div class="stat-label">T-3000 CPL</div>
+                    <div class="stat-description">If a $10K activation captures 500 verified leads, cost per lead drops to $20—a 95% discount versus LinkedIn Ads</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$408+</div>
+                    <div class="stat-label">LinkedIn B2B CPL</div>
+                    <div class="stat-description">High-intent B2B segments on LinkedIn now cost over $400 per lead with declining attribution quality</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">85%</div>
+                    <div class="stat-label">Purchase Intent Lift</div>
+                    <div class="stat-description">Attendees who participate in experiential campaigns are 85% more likely to make a purchase</div>
+                </div>
+            </div>
+
+            <div class="spacer-lg"></div>
+
+            <div class="content-block">
+                <h3 style="margin-bottom: 2rem;">Zero-Party Data Advantage</h3>
+                <p>With third-party cookies eliminated by browsers and privacy regulations tightening globally (GDPR, CCPA), brands have lost the ability to track consumers across the web. This has elevated <strong>Zero-Party Data</strong>—information that a customer <em>intentionally and proactively</em> shares—to the status of strategic asset.</p>
+                <div class="spacer-sm"></div>
+                <p>The T-3000's QR-code-for-photo exchange is the perfect Zero-Party Data mechanism: transparent, compliant, high-accuracy, and delivered in exchange for tangible value. Unlike scraped data or purchased lists, this is <em>permission-based engagement</em> with measurable ROI.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 07. MARKET STATS -->
+    <section style="background: var(--light-grey);">
+        <div class="wide-container">
+            <div class="section-header">
+                <span class="label">Market Intelligence</span>
+                <h2>The Experience Economy Inflection Point</h2>
+            </div>
+
+            <p style="margin-bottom: 3rem; max-width: 820px;">The global marketing landscape is navigating a structural shift: digital advertising efficacy is collapsing while experiential marketing spending is accelerating at unprecedented rates. Brands are reallocating capital away from banner ads and into immersive activations that deliver measurable engagement and verified data.</p>
+
+            <div class="feature-list">
+                <div class="feature-item">
+                    <div class="feature-number">01</div>
+                    <div class="feature-content">
+                        <h4>Immersive Tech Growing 28.6% Annually</h4>
+                        <p>The global immersive marketing market (AR, VR, interactive hardware) is projected to quadruple from $6.9B in 2024 to $29.7B by 2030—a 28.6% CAGR that dwarfs the 5.6% growth rate of general experiential marketing.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-number">02</div>
+                    <div class="feature-content">
+                        <h4>B2B Sector Leading Investment</h4>
+                        <p>74% of Fortune 1000 marketers plan to increase event budgets in 2025. B2B experiential marketing is growing at 11.1%, outpacing B2C. Corporate buyers allocate 28% of total marketing spend to experiential efforts, driven by the recognition that face-to-face interactions are premium, high-stakes opportunities for lead generation.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-number">03</div>
+                    <div class="feature-content">
+                        <h4>Dwell Time Increased 12% with Interactivity</h4>
+                        <p>The adoption of immersive formats and gamified interfaces has driven a 12% increase in dwell time. 46% of trade show attendees now spend 15-30 minutes engaging with interactive exhibits—compared to mere seconds with static signage. Interactive kiosks increase retail dwell time by 32%.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-number">04</div>
+                    <div class="feature-content">
+                        <h4>Pop-Up Experiences Deliver 34% ROI</h4>
+                        <p>Temporary, high-impact activations see an average return on investment of 34%. This performance is driving rapid sector expansion, with B2C companies expected to spend $90.3B on experiential marketing in 2024—a 10.3% YoY increase.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-number">05</div>
+                    <div class="feature-content">
+                        <h4>Competitive Socializing Replacing Alcohol Revenue</h4>
+                        <p>Gen Z consumes 20% less alcohol per capita than previous generations. 49% of Americans plan to drink less in 2025. Bars and venues are pivoting to "eatertainment"—activity-based experiences like arcade bars, social darts, and interactive installations. High-end, pay-per-play gaming kiosks provide a mechanism to monetize dwell time and replace lost liquor margins.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-number">06</div>
+                    <div class="feature-content">
+                        <h4>Gamification Drives 2× Conversions</h4>
+                        <p>Gamified content generates 2× more conversions than static content. 60% of experiential campaigns now include gamification elements (challenges, rewards, leaderboards). Sales conversion rates increase by 25.3% when gamification is integrated into the customer experience.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 08. BUSINESS MODEL -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <span class="label">Revenue Streams</span>
+                <h2>Rental + Sales Model</h2>
+            </div>
+
+            <div class="two-col">
+                <div>
+                    <h3 style="margin-bottom: 1.5rem;">Rental Services</h3>
+                    <p style="margin-bottom: 1rem;"><strong>Corporate Events & Trade Shows:</strong> The T-3000 is available for rental to brands seeking a turnkey experiential activation. Day rate: <strong>$2,000–$5,000</strong> depending on event scale, customization, and staffing requirements.</p>
+                    <p style="margin-bottom: 1rem;"><strong>Festivals & Music Events:</strong> Multi-day bookings with brand integration options. The T-3000 has proven reliability at Bass Coast Festival (2022, 2024), demonstrating resilience in high-traffic, outdoor, low-connectivity environments.</p>
+                    <p><strong>Venues & Nightlife:</strong> Monthly leases for bars and entertainment spaces seeking to monetize "sober curious" foot traffic. Installation acts as both a revenue generator (pay-per-play or data-gated access) and a social media amplifier.</p>
+                </div>
+                <div>
+                    <h3 style="margin-bottom: 1.5rem;">Unit Sales</h3>
+                    <p style="margin-bottom: 1rem;"><strong>Turnkey Hardware + Software Package:</strong> Custom-built units available for purchase by brands, agencies, or venue operators. Price range: <strong>$25K–$50K</strong> depending on hardware tier and software customization.</p>
+                    <p style="margin-bottom: 1rem;"><strong>SaaS Licensing Model:</strong> For buyers who want the software platform (TouchDesigner interface, data capture backend, CRM integrations) without the physical hardware. Annual licensing: <strong>$1,500–$2,500</strong> based on feature tier and white-label options.</p>
+                    <p><strong>Maintenance & Updates:</strong> Ongoing support contracts for firmware updates, AI model improvements, and hardware servicing. Annual retainer: <strong>$5K–$10K</strong>.</p>
+                </div>
+            </div>
+
+            <div class="spacer-lg"></div>
+
+            <div style="background: var(--light-grey); padding: 3rem; border-radius: 18px;">
+                <h3 style="margin-bottom: 1.5rem;">Unit Economics: Rental Model</h3>
+                <p style="margin-bottom: 1.5rem;">The photo booth rental business model offers compelling margins for owner-operators:</p>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 1rem 0; border-bottom: 1px solid #d2d2d7;">
+                        <strong>Annual Revenue Potential (Single Unit):</strong> $50,000–$75,000 with consistent bookings
+                    </li>
+                    <li style="padding: 1rem 0; border-bottom: 1px solid #d2d2d7;">
+                        <strong>Gross Margins:</strong> 60-70% (optimized operators achieve 90% on rental fees)
+                    </li>
+                    <li style="padding: 1rem 0; border-bottom: 1px solid #d2d2d7;">
+                        <strong>Per-Event Net Profit:</strong> ~$665 after attendant and consumables ($895 rental - $230 costs)
+                    </li>
+                    <li style="padding: 1rem 0;">
+                        <strong>ROI Timeline:</strong> 6-12 months payback on hardware investment ($3K–$10K initial cost)
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 09. THE TEAM -->
+    <section style="background: var(--light-grey);">
+        <div class="container">
+            <div class="section-header">
+                <span class="label">V.H.S Collective</span>
+                <h2>The Team</h2>
+            </div>
+
+            <p style="margin-bottom: 3rem;">The T-3000 is designed and built by the V.H.S Collective—a multidisciplinary team of artists, engineers, and fabricators based in Vancouver, BC. With five successful art installations at Bass Coast Festival and a proven track record in interactive media, the team brings deep technical expertise and production experience to every project.</p>
+
+            <div class="feature-list">
+                <div class="feature-item">
+                    <div class="feature-number">PU</div>
+                    <div class="feature-content">
+                        <h4>Paris Urquhart – Creative Director & Fabrication</h4>
+                        <p>Paris leads the conceptual vision and physical build process. With a background in industrial design and CNC fabrication (Fusion 360), Paris has delivered five funded installations at Bass Coast (2019–2023), including the Superlush Tone Generator, The Anomaly, and Cryptic Mystic Dragon Automaton. Paris brings expertise in framing, art direction, and experiential storytelling.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-number">PW</div>
+                    <div class="feature-content">
+                        <h4>Patrick Wilkie – Interactive Digital Media & Electrical Engineering</h4>
+                        <p>Patrick is the technical architect behind the T-3000's software and electronics. Specializing in TouchDesigner development, real-time generative systems, and hardware integration (Arduino, DMX, UltraLeap), Patrick bridges the gap between complex digital systems and seamless user experiences. His role involves crafting the technical backbone that enables gesture recognition, facial tracking, and responsive lighting.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-number">LM</div>
+                    <div class="feature-content">
+                        <h4>Leah Michaux – Framing & Art Direction</h4>
+                        <p>Leah provides critical perspective and curatorial insight, ensuring the T-3000's design is inclusive, accessible, and visually compelling. Her expertise in framing and creative vision enhances both the aesthetic depth and the strategic positioning of the project, helping the team engage broader audiences and deliver impactful, memorable experiences.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="spacer-md"></div>
+
+            <div style="background: var(--white); padding: 2.5rem; border-radius: 18px; border: 1px solid #d2d2d7;">
+                <h4 style="margin-bottom: 1rem;">Track Record</h4>
+                <p style="margin: 0;">The V.H.S Collective has secured <strong>five art grants</strong> from Bass Coast Festival, demonstrating consistent execution and innovation. Past installations include the Superlush Tone Generator (2019), The Anomaly (2020), T-3000 v1 (2022), Cryptic Mystic Dragon Automaton (2023), and Windows Vista Home Operating System (2023). The team is deeply embedded in the Bass Coast creative community and has proven ability to deliver high-reliability installations in challenging outdoor environments.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. CONTACT / CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <span class="label" style="color: #a1a1a6;">Ready to Deploy?</span>
+            <h2>Let's Build Something Memorable</h2>
+            <p>The T-3000 is available for rental, purchase, or custom development. Whether you're planning a corporate activation, festival installation, or permanent venue deployment, we deliver turnkey solutions backed by proven technology and production expertise.</p>
+
+            <div class="contact-info">
+                <div class="contact-card">
+                    <div class="label">Primary Contact</div>
+                    <div class="value">Paris Urquhart</div>
+                </div>
+                <div class="contact-card">
+                    <div class="label">Email</div>
+                    <div class="value"><a href="mailto:ParisUrquhartDesign@gmail.com">ParisUrquhartDesign@gmail.com</a></div>
+                </div>
+                <div class="contact-card">
+                    <div class="label">Phone</div>
+                    <div class="value"><a href="tel:+16047003589">(604) 700-3589</a></div>
+                </div>
+            </div>
+
+            <div class="spacer-lg"></div>
+
+            <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 3rem;">
+                <p style="color: #a1a1a6; font-size: 0.875rem; margin: 0;">
+                    <strong>T-3000 by V.H.S Collective</strong><br>
+                    Built in Vancouver, BC • Powered by UltraLeap & TouchDesigner • Designed for Experiential Marketing Excellence
+                </p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
