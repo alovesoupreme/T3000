@@ -96,6 +96,7 @@
         /* Layout */
         section {
             min-height: 100vh;
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -103,6 +104,16 @@
             scroll-snap-align: start;
             scroll-snap-stop: always;
             position: relative;
+            overflow: hidden;
+        }
+
+        /* Allow scrolling within sections on mobile for long content */
+        @media (max-width: 768px) {
+            section {
+                height: auto;
+                min-height: 100vh;
+                overflow-y: auto;
+            }
         }
 
         /* Scroll animations */
@@ -557,9 +568,26 @@
         <div class="container">
             <span class="label">Experiential Marketing Technology</span>
             <h1>T-3000</h1>
-            <p class="tagline">The Digital Mirror that solves survey fatigue and captures verified leads through interactive AR experiences</p>
+            <p class="tagline">Turn foot traffic into verified leads.<br>No surveys. No forms. No friction.</p>
             <div class="spacer-md"></div>
-            <p style="max-width: 720px; margin: 0 auto;">A custom-built interactive installation combining <strong>UltraLeap skeletal hand tracking</strong>, <strong>TouchDesigner</strong>, and industrial-grade fabrication. Built in Vancouver. Designed for high-end experiential marketing campaigns where engagement equals revenue.</p>
+            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 2rem;">
+                <div style="text-align: center;">
+                    <div style="font-size: 2.5rem;">🖐️</div>
+                    <div style="font-size: 0.875rem; color: var(--mid-grey);">Hand Tracking</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2.5rem;">🪞</div>
+                    <div style="font-size: 0.875rem; color: var(--mid-grey);">AR Mirror</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2.5rem;">📱</div>
+                    <div style="font-size: 0.875rem; color: var(--mid-grey);">QR Lead Capture</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2.5rem;">📊</div>
+                    <div style="font-size: 0.875rem; color: var(--mid-grey);">Zero-Party Data</div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1103,8 +1131,9 @@
             });
         });
 
-        // Smooth parallax effect for hero section
+        // Smooth parallax effect for hero section (disabled on mobile)
         window.addEventListener('scroll', () => {
+            if (window.innerWidth <= 768) return; // Skip parallax on mobile
             const scrolled = window.pageYOffset;
             const hero = document.querySelector('.hero');
             if (hero && scrolled < window.innerHeight) {
