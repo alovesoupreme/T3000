@@ -9,40 +9,30 @@ coverage/
 # Next.js
 .next/
 out/
-build
-dist
+*.tsbuildinfo
+next-env.d.ts
 
 # Production
-*.log
+build/
+dist/
+
+# Misc
+.DS_Store
+*.pem
+
+# Debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Environment
+# Local env files
+.env*.local
 .env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Backup files
-*_BACKUP_*.html
-
-# Python
-__pycache__/
-*.py[cod]
 
 # ClaudeFlow
-.claude-flow/memory.db
-.claude-flow/sessions/
+.swarm/tmp/
+.claude/tmp/
+
+# Editor
+.vscode/
+.idea/
