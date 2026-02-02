@@ -20,6 +20,10 @@
             --mid-grey: #6e6e73;
             --light-grey: #f5f5f7;
             --accent: #0071e3;
+            --accent-light: #5e9dff;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
         }
 
         body {
@@ -29,6 +33,20 @@
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             scroll-behavior: smooth;
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            height: 100vh;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            body {
+                scroll-behavior: auto;
+                scroll-snap-type: none;
+            }
+            * {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
         }
 
         /* Typography */
@@ -82,6 +100,58 @@
             align-items: center;
             justify-content: center;
             padding: clamp(3rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem);
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            position: relative;
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.95);
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
         }
 
         .container {
@@ -99,7 +169,31 @@
         /* Hero Section */
         .hero {
             text-align: center;
-            background: linear-gradient(135deg, var(--white) 0%, var(--light-grey) 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #f5f5f7 50%, #e8e8ea 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(0, 113, 227, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.1); opacity: 0.5; }
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
         }
 
         .hero h1 {
@@ -122,23 +216,32 @@
         }
 
         .stat-card {
-            background: var(--white);
-            border: 1px solid #d2d2d7;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(210, 210, 215, 0.3);
             border-radius: 18px;
             padding: 2.5rem 2rem;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03),
+                        0 1px 3px rgba(0, 0, 0, 0.02);
         }
 
         .stat-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 32px 64px rgba(0, 113, 227, 0.12),
+                        0 16px 32px rgba(0, 0, 0, 0.06);
             border-color: var(--accent);
+            background: rgba(255, 255, 255, 0.95);
         }
 
         .stat-number {
             font-size: clamp(3rem, 6vw, 4.5rem);
             font-weight: 700;
-            color: var(--accent);
+            background: linear-gradient(135deg, var(--accent) 0%, #5e9dff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             line-height: 1;
             margin-bottom: 0.5rem;
         }
@@ -377,6 +480,10 @@
         .highlight {
             color: var(--accent);
             font-weight: 600;
+            background: linear-gradient(135deg, rgba(0, 113, 227, 0.1) 0%, rgba(94, 157, 255, 0.1) 100%);
+            padding: 0.15em 0.4em;
+            border-radius: 4px;
+            border-left: 3px solid var(--accent);
         }
 
         /* Divider */
@@ -385,9 +492,65 @@
             background: linear-gradient(to right, transparent, #d2d2d7, transparent);
             margin: 5rem 0;
         }
+
+        /* Scroll Progress Indicator */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-3);
+            transform-origin: left;
+            transform: scaleX(0);
+            z-index: 9999;
+            transition: transform 0.1s ease-out;
+        }
+
+        /* Section Progress Dots */
+        .progress-dots {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .progress-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(0, 113, 227, 0.2);
+            border: 2px solid rgba(0, 113, 227, 0.3);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+        }
+
+        .progress-dot.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: scale(1.5);
+            box-shadow: 0 0 16px rgba(0, 113, 227, 0.4);
+        }
+
+        .progress-dot:hover {
+            transform: scale(1.3);
+            background: var(--accent-light);
+        }
+
+        @media (max-width: 768px) {
+            .progress-dots {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <div class="progress-dots" id="progressDots"></div>
 
     <!-- 01. HERO / EXECUTIVE SUMMARY -->
     <section class="hero">
@@ -614,9 +777,9 @@
 
             <div class="content-block">
                 <h3 style="margin-bottom: 2rem;">Zero-Party Data Advantage</h3>
-                <p>With third-party cookies eliminated by browsers and privacy regulations tightening globally (GDPR, CCPA), brands have lost the ability to track consumers across the web. This has elevated <strong>Zero-Party Data</strong>—information that a customer <em>intentionally and proactively</em> shares—to the status of strategic asset.</p>
+                <p>With 90%+ of browsers blocking third-party cookies by 2026 and eight new state privacy laws taking effect, brands have lost the ability to track consumers across the web. This has elevated <strong>Zero-Party Data</strong>—information that a customer <em>intentionally and proactively</em> shares—to the status of strategic asset. Zero-party data collection shows <strong>84% higher acceptance rates</strong> when users perceive value exchange, and organizations leveraging first-party data strategies achieve <strong>2.9× better customer retention</strong> and <strong>1.5× higher marketing ROI</strong>.</p>
                 <div class="spacer-sm"></div>
-                <p>The T-3000's QR-code-for-photo exchange is the perfect Zero-Party Data mechanism: transparent, compliant, high-accuracy, and delivered in exchange for tangible value. Unlike scraped data or purchased lists, this is <em>permission-based engagement</em> with measurable ROI.</p>
+                <p>The T-3000's QR-code-for-photo exchange is the perfect Zero-Party Data mechanism: transparent, compliant, high-accuracy, and delivered in exchange for tangible value. Unlike scraped data or purchased lists, this is <em>permission-based engagement</em> with measurable ROI in a post-cookie world.</p>
             </div>
         </div>
     </section>
@@ -629,7 +792,7 @@
                 <h2>The Experience Economy Inflection Point</h2>
             </div>
 
-            <p style="margin-bottom: 3rem; max-width: 820px;">The global marketing landscape is navigating a structural shift: digital advertising efficacy is collapsing while experiential marketing spending is accelerating at unprecedented rates. Brands are reallocating capital away from banner ads and into immersive activations that deliver measurable engagement and verified data.</p>
+            <p style="margin-bottom: 3rem; max-width: 820px;">The global marketing landscape is navigating a structural shift: digital advertising efficacy is collapsing while experiential marketing spending is accelerating at unprecedented rates. The experiential marketing market reached <strong>$55.53 billion in 2026</strong>, with 51% of companies increasing investment year-over-year. Brands are reallocating capital away from banner ads and into immersive activations that deliver measurable engagement and verified, privacy-compliant data.</p>
 
             <div class="feature-list">
                 <div class="feature-item">
@@ -744,23 +907,15 @@
                     <div class="feature-number">PU</div>
                     <div class="feature-content">
                         <h4>Paris Urquhart – Creative Director & Fabrication</h4>
-                        <p>Paris leads the conceptual vision and physical build process. With a background in industrial design and CNC fabrication (Fusion 360), Paris has delivered five funded installations at Bass Coast (2019–2023), including the Superlush Tone Generator, The Anomaly, and Cryptic Mystic Dragon Automaton. Paris brings expertise in framing, art direction, and experiential storytelling.</p>
+                        <p>Paris leads the conceptual vision and physical build process. With a background in industrial design and CNC fabrication (Fusion 360), Paris has delivered five funded installations at Bass Coast (2019–2024), including the Superlush Tone Generator, The Anomaly, Cryptic Mystic Dragon Automaton, and Windows Vista Home Operating System. Paris brings expertise in framing, art direction, and experiential storytelling that transforms technical systems into memorable brand experiences.</p>
                     </div>
                 </div>
 
                 <div class="feature-item">
-                    <div class="feature-number">PW</div>
+                    <div class="feature-number">AH</div>
                     <div class="feature-content">
-                        <h4>Patrick Wilkie – Interactive Digital Media & Electrical Engineering</h4>
-                        <p>Patrick is the technical architect behind the T-3000's software and electronics. Specializing in TouchDesigner development, real-time generative systems, and hardware integration (Arduino, DMX, UltraLeap), Patrick bridges the gap between complex digital systems and seamless user experiences. His role involves crafting the technical backbone that enables gesture recognition, facial tracking, and responsive lighting.</p>
-                    </div>
-                </div>
-
-                <div class="feature-item">
-                    <div class="feature-number">LM</div>
-                    <div class="feature-content">
-                        <h4>Leah Michaux – Framing & Art Direction</h4>
-                        <p>Leah provides critical perspective and curatorial insight, ensuring the T-3000's design is inclusive, accessible, and visually compelling. Her expertise in framing and creative vision enhances both the aesthetic depth and the strategic positioning of the project, helping the team engage broader audiences and deliver impactful, memorable experiences.</p>
+                        <h4>Andrew Haydock – Co-Founder & Operations</h4>
+                        <p>Andrew is a festival operations veteran with deep ties to Bass Coast and Shambhala music festivals. He brings expertise in crowd psychology, event logistics, and creating experiences that drive organic engagement. Andrew's understanding of festival culture and attendee behavior is critical to designing installations that capture attention in high-traffic, high-distraction environments. His operational expertise ensures seamless deployment and maximum uptime in challenging conditions.</p>
                     </div>
                 </div>
             </div>
@@ -806,6 +961,177 @@
             </div>
         </div>
     </section>
+
+    <script>
+        // Scroll Progress Bar
+        const scrollProgress = document.getElementById('scrollProgress');
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercent = scrollTop / scrollHeight;
+            scrollProgress.style.transform = `scaleX(${scrollPercent})`;
+        });
+
+        // Section Progress Dots
+        const sections = document.querySelectorAll('section');
+        const progressDots = document.getElementById('progressDots');
+
+        sections.forEach((section, index) => {
+            const dot = document.createElement('div');
+            dot.className = 'progress-dot';
+            dot.setAttribute('data-section', index);
+            dot.addEventListener('click', () => {
+                section.scrollIntoView({ behavior: 'smooth' });
+            });
+            progressDots.appendChild(dot);
+        });
+
+        // Update active dot on scroll
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '-50px'
+        };
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const index = Array.from(sections).indexOf(entry.target);
+                    document.querySelectorAll('.progress-dot').forEach((dot, i) => {
+                        dot.classList.toggle('active', i === index);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => sectionObserver.observe(section));
+
+        // Intersection Observer for Scroll Animations
+        const animationObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        });
+
+        // Add animation classes to elements
+        document.addEventListener('DOMContentLoaded', () => {
+            // Animate stat cards
+            document.querySelectorAll('.stat-card').forEach((card, index) => {
+                card.classList.add('scale-in');
+                card.style.transitionDelay = `${index * 0.1}s`;
+                animationObserver.observe(card);
+            });
+
+            // Animate section headers
+            document.querySelectorAll('.section-header').forEach(header => {
+                header.classList.add('fade-in');
+                animationObserver.observe(header);
+            });
+
+            // Animate timeline items
+            document.querySelectorAll('.timeline-item').forEach((item, index) => {
+                item.classList.add('slide-in-left');
+                item.style.transitionDelay = `${index * 0.15}s`;
+                animationObserver.observe(item);
+            });
+
+            // Animate feature items
+            document.querySelectorAll('.feature-item').forEach((item, index) => {
+                item.classList.add('slide-in-right');
+                item.style.transitionDelay = `${index * 0.1}s`;
+                animationObserver.observe(item);
+            });
+
+            // Animate tech grid items
+            document.querySelectorAll('.tech-item').forEach((item, index) => {
+                item.classList.add('fade-in');
+                item.style.transitionDelay = `${index * 0.08}s`;
+                animationObserver.observe(item);
+            });
+
+            // Animated Number Counters
+            const animateCounter = (element, target) => {
+                const duration = 2000;
+                const start = 0;
+                const increment = target / (duration / 16);
+                let current = start;
+
+                const updateCounter = () => {
+                    current += increment;
+                    if (current < target) {
+                        element.textContent = Math.floor(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        element.textContent = target;
+                    }
+                };
+
+                updateCounter();
+            };
+
+            // Observe stat numbers for counter animation
+            const counterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !entry.target.dataset.animated) {
+                        const text = entry.target.textContent;
+                        const match = text.match(/(\d+)/);
+                        if (match) {
+                            const targetNumber = parseInt(match[1]);
+                            entry.target.dataset.animated = 'true';
+
+                            // Store the full text for restoration
+                            const prefix = text.substring(0, text.indexOf(match[1]));
+                            const suffix = text.substring(text.indexOf(match[1]) + match[1].length);
+
+                            animateCounter({
+                                textContent: '',
+                                set textContent(val) {
+                                    entry.target.textContent = prefix + val + suffix;
+                                }
+                            }, targetNumber);
+                        }
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            document.querySelectorAll('.stat-number').forEach(stat => {
+                counterObserver.observe(stat);
+            });
+        });
+
+        // Smooth parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero && scrolled < window.innerHeight) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+                hero.style.opacity = 1 - (scrolled / window.innerHeight) * 0.5;
+            }
+        });
+
+        // Enhanced hover effect for stat cards (magnetic attraction)
+        document.querySelectorAll('.stat-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const deltaX = (x - centerX) / centerX;
+                const deltaY = (y - centerY) / centerY;
+
+                card.style.transform = `translateY(-8px) scale(1.02) rotateX(${-deltaY * 5}deg) rotateY(${deltaX * 5}deg)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
+        });
+    </script>
 
 </body>
 </html>
