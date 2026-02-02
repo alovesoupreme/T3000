@@ -185,6 +185,20 @@
             overflow: hidden;
         }
 
+        /* Hero Grid Mobile */
+        @media (max-width: 900px) {
+            .hero .container > div {
+                grid-template-columns: 1fr !important;
+                text-align: center !important;
+            }
+            .hero .container > div > div:first-child {
+                text-align: center !important;
+            }
+            .hero .container > div > div:first-child > div:last-child {
+                justify-content: center !important;
+            }
+        }
+
         .hero::before {
             content: '';
             position: absolute;
@@ -938,27 +952,25 @@
             <div class="floating-orb orb-2"></div>
         </div>
         <div class="container" style="position: relative; z-index: 1;">
-            <span class="label">Experiential Marketing Technology</span>
-            <h1 class="gradient-text-animated">T-3000</h1>
-            <p class="tagline" style="font-size: clamp(1.25rem, 3vw, 1.75rem); margin-top: 1rem;">Turn foot traffic into verified leads.</p>
-            <p style="color: var(--mid-grey); font-size: 1.125rem; margin-top: 0.5rem;">No surveys. No forms. No friction.</p>
-            <div class="spacer-md"></div>
-            <div style="display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; margin-top: 2rem;">
-                <div style="text-align: center;" class="fade-in stagger-1">
-                    <div class="animated-icon" style="font-size: 3rem; margin-bottom: 0.5rem;">🖐️</div>
-                    <div class="pill-tag">Hand Tracking</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+                <!-- Left: Text Content -->
+                <div style="text-align: left;">
+                    <span class="label">Experiential Marketing Technology</span>
+                    <h1 class="gradient-text-animated" style="margin-top: 0.5rem;">T-3000</h1>
+                    <p class="tagline" style="font-size: clamp(1.25rem, 3vw, 1.75rem); margin-top: 1rem;">Turn foot traffic into verified leads.</p>
+                    <p style="color: var(--mid-grey); font-size: 1.125rem; margin-top: 0.5rem;">No surveys. No forms. No friction.</p>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem;">
+                        <div class="pill-tag fade-in stagger-1">🖐️ Hand Tracking</div>
+                        <div class="pill-tag fade-in stagger-2">🪞 AR Mirror</div>
+                        <div class="pill-tag fade-in stagger-3">📱 QR Capture</div>
+                        <div class="pill-tag fade-in stagger-4">📊 Zero-Party Data</div>
+                    </div>
                 </div>
-                <div style="text-align: center;" class="fade-in stagger-2">
-                    <div class="animated-icon" style="font-size: 3rem; margin-bottom: 0.5rem;">🪞</div>
-                    <div class="pill-tag">AR Mirror</div>
-                </div>
-                <div style="text-align: center;" class="fade-in stagger-3">
-                    <div class="animated-icon" style="font-size: 3rem; margin-bottom: 0.5rem;">📱</div>
-                    <div class="pill-tag">QR Capture</div>
-                </div>
-                <div style="text-align: center;" class="fade-in stagger-4">
-                    <div class="animated-icon" style="font-size: 3rem; margin-bottom: 0.5rem;">📊</div>
-                    <div class="pill-tag">Zero-Party Data</div>
+                <!-- Right: T-3000 Image -->
+                <div style="text-align: center;" class="fade-in">
+                    <img src="https://drive.google.com/uc?export=view&id=1GzlWPKd_-UdZd6cRDMeADqjTdMrXU0rM"
+                         alt="T-3000 Interactive Arcade Installation"
+                         style="max-width: 100%; height: auto; max-height: 450px; border-radius: 24px; box-shadow: 0 20px 60px rgba(0,0,0,0.15);">
                 </div>
             </div>
         </div>
