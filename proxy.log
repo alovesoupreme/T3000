@@ -1,0 +1,40 @@
+
+╔══════════════════════════════════════════════════════════════╗
+║           Antigravity Claude Proxy Server                    ║
+╠══════════════════════════════════════════════════════════════╣
+║                                                              ║
+║  Server running at: http://localhost:8080                    ║
+║                                                              ║
+║  Control:                                                    ║
+║    --debug            Enable debug logging                   ║
+║    --fallback         Enable model fallback on quota exhaust ║
+║    Ctrl+C             Stop server                            ║
+║                                                              ║
+║  Endpoints:                                                  ║
+║    POST /v1/messages         - Anthropic Messages API        ║
+║    GET  /v1/models           - List available models         ║
+║    GET  /health              - Health check                  ║
+║    GET  /account-limits      - Account status & quotas       ║
+║    POST /refresh-token       - Force token refresh           ║
+║                                                              ║
+║  Configuration:                                              ║
+║    Storage: /Users/mac/.antigravity-claude-proxy             ║
+║                                                              ║
+║  Usage with Claude Code:                                     ║
+║    export ANTHROPIC_BASE_URL=http://localhost:8080           ║
+║    export ANTHROPIC_API_KEY=dummy                            ║
+║    claude                                                    ║
+║                                                              ║
+║  Add Google accounts:                                        ║
+║    npm run accounts                                          ║
+║                                                              ║
+║  Prerequisites (if no accounts configured):                  ║
+║    - Antigravity must be running                             ║
+║    - Have a chat panel open in Antigravity                   ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+  
+[90m[2026-01-21T23:38:16.323Z][0m [32m[SUCCESS][0m Server started successfully on port 8080
+[90m[2026-01-21T23:38:19.187Z][0m [34m[INFO][0m [GET] /health
+[90m[2026-01-21T23:38:19.189Z][0m [34m[INFO][0m [AccountManager] Loaded 1 account(s) from config
+[90m[2026-01-21T23:38:19.189Z][0m [32m[SUCCESS][0m [Server] Account pool initialized: 1 total, 1 available, 0 rate-limited, 0 invalid

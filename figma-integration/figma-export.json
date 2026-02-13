@@ -1,0 +1,1975 @@
+{
+  "meta": {
+    "source": "T3000_Master_Deck.html",
+    "version": "v1.2 Professional",
+    "exportDate": "2026-02-03T23:06:43.478Z",
+    "slideCount": 10,
+    "slideSize": "1920x1080"
+  },
+  "designTokens": {
+    "$schema": "https://design-tokens.github.io/design-tokens/schema/design-tokens-schema.json",
+    "colors": {
+      "white": {
+        "$value": "#ffffff",
+        "$type": "color"
+      },
+      "near-black": {
+        "$value": "#111111",
+        "$type": "color"
+      },
+      "mid-grey": {
+        "$value": "#6e6e73",
+        "$type": "color"
+      },
+      "light-grey": {
+        "$value": "#f5f5f7",
+        "$type": "color"
+      },
+      "accent": {
+        "$value": "#0071e3",
+        "$type": "color"
+      },
+      "accent-light": {
+        "$value": "#5e9dff",
+        "$type": "color"
+      }
+    },
+    "gradients": {
+      "gradient-1": {
+        "$value": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        "$type": "gradient",
+        "stops": [
+          {
+            "color": "#667eea",
+            "position": 0
+          },
+          {
+            "color": "#764ba2",
+            "position": 1
+          }
+        ]
+      },
+      "gradient-2": {
+        "$value": "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+        "$type": "gradient",
+        "stops": [
+          {
+            "color": "#f093fb",
+            "position": 0
+          },
+          {
+            "color": "#f5576c",
+            "position": 1
+          }
+        ]
+      },
+      "gradient-3": {
+        "$value": "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+        "$type": "gradient",
+        "stops": [
+          {
+            "color": "#4facfe",
+            "position": 0
+          },
+          {
+            "color": "#00f2fe",
+            "position": 1
+          }
+        ]
+      }
+    },
+    "typography": {
+      "fontFamily": {
+        "inter": {
+          "$value": "Inter",
+          "$type": "fontFamily"
+        }
+      },
+      "fontSize": {
+        "h1-min": {
+          "$value": "3rem",
+          "$type": "dimension"
+        },
+        "h1-max": {
+          "$value": "6rem",
+          "$type": "dimension"
+        },
+        "h2-min": {
+          "$value": "2rem",
+          "$type": "dimension"
+        },
+        "h2-max": {
+          "$value": "4rem",
+          "$type": "dimension"
+        },
+        "h3-min": {
+          "$value": "1.5rem",
+          "$type": "dimension"
+        },
+        "h3-max": {
+          "$value": "2.5rem",
+          "$type": "dimension"
+        },
+        "body": {
+          "$value": "1.25rem",
+          "$type": "dimension"
+        },
+        "label": {
+          "$value": "0.875rem",
+          "$type": "dimension"
+        }
+      },
+      "fontWeight": {
+        "light": {
+          "$value": 300,
+          "$type": "fontWeight"
+        },
+        "regular": {
+          "$value": 400,
+          "$type": "fontWeight"
+        },
+        "medium": {
+          "$value": 500,
+          "$type": "fontWeight"
+        },
+        "semibold": {
+          "$value": 600,
+          "$type": "fontWeight"
+        },
+        "bold": {
+          "$value": 700,
+          "$type": "fontWeight"
+        }
+      },
+      "letterSpacing": {
+        "tight-3": {
+          "$value": "-0.03em",
+          "$type": "dimension"
+        },
+        "tight-2": {
+          "$value": "-0.02em",
+          "$type": "dimension"
+        },
+        "tight-1": {
+          "$value": "-0.01em",
+          "$type": "dimension"
+        },
+        "wide": {
+          "$value": "0.08em",
+          "$type": "dimension"
+        }
+      },
+      "lineHeight": {
+        "tight": {
+          "$value": 1.05,
+          "$type": "number"
+        },
+        "snug": {
+          "$value": 1.2,
+          "$type": "number"
+        },
+        "normal": {
+          "$value": 1.6,
+          "$type": "number"
+        },
+        "relaxed": {
+          "$value": 1.7,
+          "$type": "number"
+        }
+      }
+    },
+    "spacing": {
+      "xs": {
+        "$value": "0.5rem",
+        "$type": "dimension"
+      },
+      "sm": {
+        "$value": "1rem",
+        "$type": "dimension"
+      },
+      "md": {
+        "$value": "2rem",
+        "$type": "dimension"
+      },
+      "lg": {
+        "$value": "3rem",
+        "$type": "dimension"
+      },
+      "xl": {
+        "$value": "4rem",
+        "$type": "dimension"
+      },
+      "2xl": {
+        "$value": "6rem",
+        "$type": "dimension"
+      },
+      "3xl": {
+        "$value": "8rem",
+        "$type": "dimension"
+      }
+    },
+    "shadows": {
+      "glass-card": {
+        "$value": "0 8px 32px 0 rgba(31, 38, 135, 0.15)",
+        "$type": "shadow"
+      },
+      "card": {
+        "$value": "0 1px 3px rgba(0,0,0,0.05), 0 10px 40px rgba(0,0,0,0.08)",
+        "$type": "shadow"
+      },
+      "card-hover": {
+        "$value": "0 4px 6px rgba(0,0,0,0.07), 0 20px 60px rgba(0,0,0,0.12)",
+        "$type": "shadow"
+      }
+    },
+    "borderRadius": {
+      "sm": {
+        "$value": "8px",
+        "$type": "dimension"
+      },
+      "md": {
+        "$value": "12px",
+        "$type": "dimension"
+      },
+      "lg": {
+        "$value": "16px",
+        "$type": "dimension"
+      },
+      "xl": {
+        "$value": "20px",
+        "$type": "dimension"
+      }
+    },
+    "effects": {
+      "backdrop-blur": {
+        "$value": "10px",
+        "$type": "dimension"
+      },
+      "glass-opacity": {
+        "$value": "0.1",
+        "$type": "number"
+      }
+    }
+  },
+  "frames": [
+    {
+      "type": "FRAME",
+      "name": "Slide 1",
+      "width": 1920,
+      "height": 1080,
+      "x": 0,
+      "y": 0,
+      "backgroundColor": {
+        "r": 1,
+        "g": 1,
+        "b": 1
+      },
+      "children": [
+        {
+          "type": "TEXT",
+          "name": "H1 - T-3000...",
+          "characters": "T-3000",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 96,
+            "fontWeight": 700,
+            "textAlignHorizontal": "CENTER",
+            "lineHeightPx": 115.19999999999999,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.06666666666666667,
+                  "g": 0.06666666666666667,
+                  "b": 0.06666666666666667
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "P - The Digital Mirror that solves...",
+          "characters": "The Digital Mirror that solves survey fatigue and captures verified leads through interactive AR experiences",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 20,
+            "fontWeight": 400,
+            "textAlignHorizontal": "LEFT",
+            "lineHeightPx": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.43137254901960786,
+                  "g": 0.43137254901960786,
+                  "b": 0.45098039215686275
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "P - A custom-built interactive ins...",
+          "characters": "A custom-built interactive installation combining UltraLeap skeletal hand tracking, TouchDesigner, and industrial-grade fabrication. Built in Vancouver. Designed for high-end experiential marketing campaigns where engagement equals revenue.",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 20,
+            "fontWeight": 400,
+            "textAlignHorizontal": "LEFT",
+            "lineHeightPx": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.43137254901960786,
+                  "g": 0.43137254901960786,
+                  "b": 0.45098039215686275
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        }
+      ],
+      "constraints": {
+        "horizontal": "MIN",
+        "vertical": "MIN"
+      },
+      "layoutMode": "VERTICAL",
+      "primaryAxisSizingMode": "FIXED",
+      "counterAxisSizingMode": "FIXED",
+      "paddingLeft": 80,
+      "paddingRight": 80,
+      "paddingTop": 80,
+      "paddingBottom": 80,
+      "itemSpacing": 32
+    },
+    {
+      "type": "FRAME",
+      "name": "Slide 2",
+      "width": 1920,
+      "height": 1080,
+      "x": 2020,
+      "y": 0,
+      "backgroundColor": {
+        "r": 1,
+        "g": 1,
+        "b": 1
+      },
+      "children": [
+        {
+          "type": "TEXT",
+          "name": "H2 - Static Booths Are Dying...",
+          "characters": "Static Booths Are Dying",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 64,
+            "fontWeight": 600,
+            "textAlignHorizontal": "CENTER",
+            "lineHeightPx": 76.8,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.06666666666666667,
+                  "g": 0.06666666666666667,
+                  "b": 0.06666666666666667
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "P - The traditional trade show boo...",
+          "characters": "The traditional trade show booth is experiencing terminal decline. Digital advertising has collapsed under the weight of banner blindness and ad fatigue, while physical activations remain trapped in the analog era—static signage, clipboard surveys, and forgettable swag. The result is a catastrophic failure to capture attention or data.",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 20,
+            "fontWeight": 400,
+            "textAlignHorizontal": "LEFT",
+            "lineHeightPx": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.43137254901960786,
+                  "g": 0.43137254901960786,
+                  "b": 0.45098039215686275
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "P - Brands are trapped between two...",
+          "characters": "Brands are trapped between two expensive failures: digital ads that nobody sees, and physical booths that nobody remembers. The T-3000 breaks this deadlock by creating a physical experience that generates digital data—without relying on surveys, forms, or clipboard fatigue.",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 20,
+            "fontWeight": 400,
+            "textAlignHorizontal": "LEFT",
+            "lineHeightPx": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.43137254901960786,
+                  "g": 0.43137254901960786,
+                  "b": 0.45098039215686275
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        }
+      ],
+      "constraints": {
+        "horizontal": "MIN",
+        "vertical": "MIN"
+      },
+      "layoutMode": "VERTICAL",
+      "primaryAxisSizingMode": "FIXED",
+      "counterAxisSizingMode": "FIXED",
+      "paddingLeft": 80,
+      "paddingRight": 80,
+      "paddingTop": 80,
+      "paddingBottom": 80,
+      "itemSpacing": 32
+    },
+    {
+      "type": "FRAME",
+      "name": "Slide 3",
+      "width": 1920,
+      "height": 1080,
+      "x": 4040,
+      "y": 0,
+      "backgroundColor": {
+        "r": 1,
+        "g": 1,
+        "b": 1
+      },
+      "children": [
+        {
+          "type": "TEXT",
+          "name": "H2 - A Digital Mirror That Captures...",
+          "characters": "A Digital Mirror That Captures Leads",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 64,
+            "fontWeight": 600,
+            "textAlignHorizontal": "CENTER",
+            "lineHeightPx": 76.8,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.06666666666666667,
+                  "g": 0.06666666666666667,
+                  "b": 0.06666666666666667
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "H3 - What It Is...",
+          "characters": "What It Is",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 40,
+            "fontWeight": 600,
+            "textAlignHorizontal": "CENTER",
+            "lineHeightPx": 48,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.06666666666666667,
+                  "g": 0.06666666666666667,
+                  "b": 0.06666666666666667
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "H3 - Why It Works...",
+          "characters": "Why It Works",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 40,
+            "fontWeight": 600,
+            "textAlignHorizontal": "CENTER",
+            "lineHeightPx": 48,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.06666666666666667,
+                  "g": 0.06666666666666667,
+                  "b": 0.06666666666666667
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "P - The T-3000 is a repurposed arc...",
+          "characters": "The T-3000 is a repurposed arcade cabinet transformed into an augmented reality experience platform. Users step in front of the mirror-like display, and the system tracks their hands, face, and body movements in real-time. They manipulate virtual objects, explore fluid dynamics, and create digital art with their gestures—no controllers, no apps, no friction.",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 20,
+            "fontWeight": 400,
+            "textAlignHorizontal": "LEFT",
+            "lineHeightPx": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.43137254901960786,
+                  "g": 0.43137254901960786,
+                  "b": 0.45098039215686275
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "P - When they're done playing, the...",
+          "characters": "When they're done playing, they scan a QR code to receive their personalized photo. That scan is the lead capture. No clipboard. No form. No \"survey fatigue.\" Just pure experiential value exchange.",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 20,
+            "fontWeight": 400,
+            "textAlignHorizontal": "LEFT",
+            "lineHeightPx": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.43137254901960786,
+                  "g": 0.43137254901960786,
+                  "b": 0.45098039215686275
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "P - Gamification drives 2x convers...",
+          "characters": "Gamification drives 2x conversions. Users spend an average of 4.5 minutes with gamified content versus 1.3 minutes with static displays. The T-3000 leverages variable reward psychology—the same dopamine triggers as slot machines—to create heightened engagement.",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 20,
+            "fontWeight": 400,
+            "textAlignHorizontal": "LEFT",
+            "lineHeightPx": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.43137254901960786,
+                  "g": 0.43137254901960786,
+                  "b": 0.45098039215686275
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "P - Nostalgia bypasses skepticism....",
+          "characters": "Nostalgia bypasses skepticism. By wrapping sophisticated technology in a retro arcade shell, the T-3000 taps into Gen Z's anemoia and Millennial nostalgia, disarming the natural resistance to \"marketing kiosks.\"",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 20,
+            "fontWeight": 400,
+            "textAlignHorizontal": "LEFT",
+            "lineHeightPx": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.43137254901960786,
+                  "g": 0.43137254901960786,
+                  "b": 0.45098039215686275
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "P - Zero-Party Data is the new gol...",
+          "characters": "Zero-Party Data is the new gold. With third-party cookies dying, brands need data that consumers intentionally share. The T-3000's QR code exchange delivers verified, compliant, high-fidelity leads.",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 20,
+            "fontWeight": 400,
+            "textAlignHorizontal": "LEFT",
+            "lineHeightPx": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.43137254901960786,
+                  "g": 0.43137254901960786,
+                  "b": 0.45098039215686275
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        }
+      ],
+      "constraints": {
+        "horizontal": "MIN",
+        "vertical": "MIN"
+      },
+      "layoutMode": "VERTICAL",
+      "primaryAxisSizingMode": "FIXED",
+      "counterAxisSizingMode": "FIXED",
+      "paddingLeft": 80,
+      "paddingRight": 80,
+      "paddingTop": 80,
+      "paddingBottom": 80,
+      "itemSpacing": 32
+    },
+    {
+      "type": "FRAME",
+      "name": "Slide 4",
+      "width": 1920,
+      "height": 1080,
+      "x": 6060,
+      "y": 0,
+      "backgroundColor": {
+        "r": 1,
+        "g": 1,
+        "b": 1
+      },
+      "children": [
+        {
+          "type": "TEXT",
+          "name": "H2 - Industrial-Grade Hardware Meet...",
+          "characters": "Industrial-Grade Hardware Meets Cutting-Edge Software",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 64,
+            "fontWeight": 600,
+            "textAlignHorizontal": "CENTER",
+            "lineHeightPx": 76.8,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.06666666666666667,
+                  "g": 0.06666666666666667,
+                  "b": 0.06666666666666667
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "H3 - Offline-First Architecture...",
+          "characters": "Offline-First Architecture",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 40,
+            "fontWeight": 600,
+            "textAlignHorizontal": "CENTER",
+            "lineHeightPx": 48,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.06666666666666667,
+                  "g": 0.06666666666666667,
+                  "b": 0.06666666666666667
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "H4 - Physical Footprint...",
+          "characters": "Physical Footprint",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 32,
+            "fontWeight": 600,
+            "textAlignHorizontal": "CENTER",
+            "lineHeightPx": 38.4,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.06666666666666667,
+                  "g": 0.06666666666666667,
+                  "b": 0.06666666666666667
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "P - The T-3000 is not a prototype....",
+          "characters": "The T-3000 is not a prototype. It's a battle-tested platform that premiered at Bass Coast 2022 and has undergone continuous evolution. The 2024 iteration represents a fundamental leap in capability, integrating best-in-class tracking hardware with custom TouchDesigner development.",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 20,
+            "fontWeight": 400,
+            "textAlignHorizontal": "LEFT",
+            "lineHeightPx": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.43137254901960786,
+                  "g": 0.43137254901960786,
+                  "b": 0.45098039215686275
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "P - Live events are hostile networ...",
+          "characters": "Live events are hostile network environments. At major festivals, bandwidth demand can reach 2-5 terabytes per day, causing cellular networks to collapse under congestion. The T-3000 is engineered with offline-first architecture: all data capture, media processing, and AI filtering happens locally on the device's hard drive. Cloud synchronization occurs asynchronously when connectivity is restored. This guarantees 100% data integrity even in network dead zones—addressing the number one anxiety of event organizers.",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 20,
+            "fontWeight": 400,
+            "textAlignHorizontal": "LEFT",
+            "lineHeightPx": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.43137254901960786,
+                  "g": 0.43137254901960786,
+                  "b": 0.45098039215686275
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "P - 150cm W × 150cm L × 200cm H (i...",
+          "characters": "150cm W × 150cm L × 200cm H (including reinforced base)",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 20,
+            "fontWeight": 400,
+            "textAlignHorizontal": "LEFT",
+            "lineHeightPx": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.43137254901960786,
+                  "g": 0.43137254901960786,
+                  "b": 0.45098039215686275
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        }
+      ],
+      "constraints": {
+        "horizontal": "MIN",
+        "vertical": "MIN"
+      },
+      "layoutMode": "VERTICAL",
+      "primaryAxisSizingMode": "FIXED",
+      "counterAxisSizingMode": "FIXED",
+      "paddingLeft": 80,
+      "paddingRight": 80,
+      "paddingTop": 80,
+      "paddingBottom": 80,
+      "itemSpacing": 32
+    },
+    {
+      "type": "FRAME",
+      "name": "Slide 5",
+      "width": 1920,
+      "height": 1080,
+      "x": 8080,
+      "y": 0,
+      "backgroundColor": {
+        "r": 1,
+        "g": 1,
+        "b": 1
+      },
+      "children": [
+        {
+          "type": "TEXT",
+          "name": "H2 - The User Journey...",
+          "characters": "The User Journey",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 64,
+            "fontWeight": 600,
+            "textAlignHorizontal": "CENTER",
+            "lineHeightPx": 76.8,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.06666666666666667,
+                  "g": 0.06666666666666667,
+                  "b": 0.06666666666666667
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "P - The T-3000 creates a frictionl...",
+          "characters": "The T-3000 creates a frictionless loop that converts curiosity into data capture in under 60 seconds. Every interaction is designed to maximize dwell time while minimizing user effort.",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 20,
+            "fontWeight": 400,
+            "textAlignHorizontal": "LEFT",
+            "lineHeightPx": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.43137254901960786,
+                  "g": 0.43137254901960786,
+                  "b": 0.45098039215686275
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        }
+      ],
+      "constraints": {
+        "horizontal": "MIN",
+        "vertical": "MIN"
+      },
+      "layoutMode": "VERTICAL",
+      "primaryAxisSizingMode": "FIXED",
+      "counterAxisSizingMode": "FIXED",
+      "paddingLeft": 80,
+      "paddingRight": 80,
+      "paddingTop": 80,
+      "paddingBottom": 80,
+      "itemSpacing": 32
+    },
+    {
+      "type": "FRAME",
+      "name": "Slide 6",
+      "width": 1920,
+      "height": 1080,
+      "x": 10100,
+      "y": 0,
+      "backgroundColor": {
+        "r": 1,
+        "g": 1,
+        "b": 1
+      },
+      "children": [
+        {
+          "type": "TEXT",
+          "name": "H2 - Data Capture Economics...",
+          "characters": "Data Capture Economics",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 64,
+            "fontWeight": 600,
+            "textAlignHorizontal": "CENTER",
+            "lineHeightPx": 76.8,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.06666666666666667,
+                  "g": 0.06666666666666667,
+                  "b": 0.06666666666666667
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "H3 - Zero-Party Data Advantage...",
+          "characters": "Zero-Party Data Advantage",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 40,
+            "fontWeight": 600,
+            "textAlignHorizontal": "CENTER",
+            "lineHeightPx": 48,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.06666666666666667,
+                  "g": 0.06666666666666667,
+                  "b": 0.06666666666666667
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "P - Traditional digital advertisin...",
+          "characters": "Traditional digital advertising is hemorrhaging efficiency. The T-3000 offers a massive cost-per-lead arbitrage opportunity by replacing expensive, low-fidelity digital ads with high-touch, high-conversion physical experiences.",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 20,
+            "fontWeight": 400,
+            "textAlignHorizontal": "LEFT",
+            "lineHeightPx": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.43137254901960786,
+                  "g": 0.43137254901960786,
+                  "b": 0.45098039215686275
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "P - With 90%+ of browsers blocking...",
+          "characters": "With 90%+ of browsers blocking third-party cookies by 2026 and eight new state privacy laws taking effect, brands have lost the ability to track consumers across the web. This has elevated Zero-Party Data—information that a customer intentionally and proactively shares—to the status of strategic asset. Zero-party data collection shows 84% higher acceptance rates when users perceive value exchange, and organizations leveraging first-party data strategies achieve 2.9× better customer retention and 1.5× higher marketing ROI.",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 20,
+            "fontWeight": 400,
+            "textAlignHorizontal": "LEFT",
+            "lineHeightPx": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.43137254901960786,
+                  "g": 0.43137254901960786,
+                  "b": 0.45098039215686275
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "P - The T-3000's QR-code-for-photo...",
+          "characters": "The T-3000's QR-code-for-photo exchange is the perfect Zero-Party Data mechanism: transparent, compliant, high-accuracy, and delivered in exchange for tangible value. Unlike scraped data or purchased lists, this is permission-based engagement with measurable ROI in a post-cookie world.",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 20,
+            "fontWeight": 400,
+            "textAlignHorizontal": "LEFT",
+            "lineHeightPx": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.43137254901960786,
+                  "g": 0.43137254901960786,
+                  "b": 0.45098039215686275
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        }
+      ],
+      "constraints": {
+        "horizontal": "MIN",
+        "vertical": "MIN"
+      },
+      "layoutMode": "VERTICAL",
+      "primaryAxisSizingMode": "FIXED",
+      "counterAxisSizingMode": "FIXED",
+      "paddingLeft": 80,
+      "paddingRight": 80,
+      "paddingTop": 80,
+      "paddingBottom": 80,
+      "itemSpacing": 32
+    },
+    {
+      "type": "FRAME",
+      "name": "Slide 7",
+      "width": 1920,
+      "height": 1080,
+      "x": 12120,
+      "y": 0,
+      "backgroundColor": {
+        "r": 1,
+        "g": 1,
+        "b": 1
+      },
+      "children": [
+        {
+          "type": "TEXT",
+          "name": "H2 - The Experience Economy Inflect...",
+          "characters": "The Experience Economy Inflection Point",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 64,
+            "fontWeight": 600,
+            "textAlignHorizontal": "CENTER",
+            "lineHeightPx": 76.8,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.06666666666666667,
+                  "g": 0.06666666666666667,
+                  "b": 0.06666666666666667
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "H4 - Immersive Tech Growing 28.6% A...",
+          "characters": "Immersive Tech Growing 28.6% Annually",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 32,
+            "fontWeight": 600,
+            "textAlignHorizontal": "CENTER",
+            "lineHeightPx": 38.4,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.06666666666666667,
+                  "g": 0.06666666666666667,
+                  "b": 0.06666666666666667
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "H4 - B2B Sector Leading Investment...",
+          "characters": "B2B Sector Leading Investment",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 32,
+            "fontWeight": 600,
+            "textAlignHorizontal": "CENTER",
+            "lineHeightPx": 38.4,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.06666666666666667,
+                  "g": 0.06666666666666667,
+                  "b": 0.06666666666666667
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "H4 - Dwell Time Increased 12% with ...",
+          "characters": "Dwell Time Increased 12% with Interactivity",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 32,
+            "fontWeight": 600,
+            "textAlignHorizontal": "CENTER",
+            "lineHeightPx": 38.4,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.06666666666666667,
+                  "g": 0.06666666666666667,
+                  "b": 0.06666666666666667
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "H4 - Pop-Up Experiences Deliver 34%...",
+          "characters": "Pop-Up Experiences Deliver 34% ROI",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 32,
+            "fontWeight": 600,
+            "textAlignHorizontal": "CENTER",
+            "lineHeightPx": 38.4,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.06666666666666667,
+                  "g": 0.06666666666666667,
+                  "b": 0.06666666666666667
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "H4 - Competitive Socializing Replac...",
+          "characters": "Competitive Socializing Replacing Alcohol Revenue",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 32,
+            "fontWeight": 600,
+            "textAlignHorizontal": "CENTER",
+            "lineHeightPx": 38.4,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.06666666666666667,
+                  "g": 0.06666666666666667,
+                  "b": 0.06666666666666667
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "H4 - Gamification Drives 2× Convers...",
+          "characters": "Gamification Drives 2× Conversions",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 32,
+            "fontWeight": 600,
+            "textAlignHorizontal": "CENTER",
+            "lineHeightPx": 38.4,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.06666666666666667,
+                  "g": 0.06666666666666667,
+                  "b": 0.06666666666666667
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "P - The global marketing landscape...",
+          "characters": "The global marketing landscape is navigating a structural shift: digital advertising efficacy is collapsing while experiential marketing spending is accelerating at unprecedented rates. The experiential marketing market reached $55.53 billion in 2026, with 51% of companies increasing investment year-over-year. Brands are reallocating capital away from banner ads and into immersive activations that deliver measurable engagement and verified, privacy-compliant data.",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 20,
+            "fontWeight": 400,
+            "textAlignHorizontal": "LEFT",
+            "lineHeightPx": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.43137254901960786,
+                  "g": 0.43137254901960786,
+                  "b": 0.45098039215686275
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "P - The global immersive marketing...",
+          "characters": "The global immersive marketing market (AR, VR, interactive hardware) is projected to quadruple from $6.9B in 2024 to $29.7B by 2030—a 28.6% CAGR that dwarfs the 5.6% growth rate of general experiential marketing.",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 20,
+            "fontWeight": 400,
+            "textAlignHorizontal": "LEFT",
+            "lineHeightPx": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.43137254901960786,
+                  "g": 0.43137254901960786,
+                  "b": 0.45098039215686275
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "P - 74% of Fortune 1000 marketers ...",
+          "characters": "74% of Fortune 1000 marketers plan to increase event budgets in 2025. B2B experiential marketing is growing at 11.1%, outpacing B2C. Corporate buyers allocate 28% of total marketing spend to experiential efforts, driven by the recognition that face-to-face interactions are premium, high-stakes opportunities for lead generation.",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 20,
+            "fontWeight": 400,
+            "textAlignHorizontal": "LEFT",
+            "lineHeightPx": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.43137254901960786,
+                  "g": 0.43137254901960786,
+                  "b": 0.45098039215686275
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "P - The adoption of immersive form...",
+          "characters": "The adoption of immersive formats and gamified interfaces has driven a 12% increase in dwell time. 46% of trade show attendees now spend 15-30 minutes engaging with interactive exhibits—compared to mere seconds with static signage. Interactive kiosks increase retail dwell time by 32%.",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 20,
+            "fontWeight": 400,
+            "textAlignHorizontal": "LEFT",
+            "lineHeightPx": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.43137254901960786,
+                  "g": 0.43137254901960786,
+                  "b": 0.45098039215686275
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "P - Temporary, high-impact activat...",
+          "characters": "Temporary, high-impact activations see an average return on investment of 34%. This performance is driving rapid sector expansion, with B2C companies expected to spend $90.3B on experiential marketing in 2024—a 10.3% YoY increase.",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 20,
+            "fontWeight": 400,
+            "textAlignHorizontal": "LEFT",
+            "lineHeightPx": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.43137254901960786,
+                  "g": 0.43137254901960786,
+                  "b": 0.45098039215686275
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "P - Gen Z consumes 20% less alcoho...",
+          "characters": "Gen Z consumes 20% less alcohol per capita than previous generations. 49% of Americans plan to drink less in 2025. Bars and venues are pivoting to \"eatertainment\"—activity-based experiences like arcade bars, social darts, and interactive installations. High-end, pay-per-play gaming kiosks provide a mechanism to monetize dwell time and replace lost liquor margins.",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 20,
+            "fontWeight": 400,
+            "textAlignHorizontal": "LEFT",
+            "lineHeightPx": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.43137254901960786,
+                  "g": 0.43137254901960786,
+                  "b": 0.45098039215686275
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "P - Gamified content generates 2× ...",
+          "characters": "Gamified content generates 2× more conversions than static content. 60% of experiential campaigns now include gamification elements (challenges, rewards, leaderboards). Sales conversion rates increase by 25.3% when gamification is integrated into the customer experience.",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 20,
+            "fontWeight": 400,
+            "textAlignHorizontal": "LEFT",
+            "lineHeightPx": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.43137254901960786,
+                  "g": 0.43137254901960786,
+                  "b": 0.45098039215686275
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        }
+      ],
+      "constraints": {
+        "horizontal": "MIN",
+        "vertical": "MIN"
+      },
+      "layoutMode": "VERTICAL",
+      "primaryAxisSizingMode": "FIXED",
+      "counterAxisSizingMode": "FIXED",
+      "paddingLeft": 80,
+      "paddingRight": 80,
+      "paddingTop": 80,
+      "paddingBottom": 80,
+      "itemSpacing": 32
+    },
+    {
+      "type": "FRAME",
+      "name": "Slide 8",
+      "width": 1920,
+      "height": 1080,
+      "x": 14140,
+      "y": 0,
+      "backgroundColor": {
+        "r": 1,
+        "g": 1,
+        "b": 1
+      },
+      "children": [
+        {
+          "type": "TEXT",
+          "name": "H2 - Rental + Sales Model...",
+          "characters": "Rental + Sales Model",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 64,
+            "fontWeight": 600,
+            "textAlignHorizontal": "CENTER",
+            "lineHeightPx": 76.8,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.06666666666666667,
+                  "g": 0.06666666666666667,
+                  "b": 0.06666666666666667
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "H3 - Rental Services...",
+          "characters": "Rental Services",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 40,
+            "fontWeight": 600,
+            "textAlignHorizontal": "CENTER",
+            "lineHeightPx": 48,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.06666666666666667,
+                  "g": 0.06666666666666667,
+                  "b": 0.06666666666666667
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "H3 - Unit Sales...",
+          "characters": "Unit Sales",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 40,
+            "fontWeight": 600,
+            "textAlignHorizontal": "CENTER",
+            "lineHeightPx": 48,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.06666666666666667,
+                  "g": 0.06666666666666667,
+                  "b": 0.06666666666666667
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "H3 - Unit Economics: Rental Model...",
+          "characters": "Unit Economics: Rental Model",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 40,
+            "fontWeight": 600,
+            "textAlignHorizontal": "CENTER",
+            "lineHeightPx": 48,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.06666666666666667,
+                  "g": 0.06666666666666667,
+                  "b": 0.06666666666666667
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "P - Corporate Events & Trade Shows...",
+          "characters": "Corporate Events & Trade Shows: The T-3000 is available for rental to brands seeking a turnkey experiential activation. Day rate: $2,000–$5,000 depending on event scale, customization, and staffing requirements.",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 20,
+            "fontWeight": 400,
+            "textAlignHorizontal": "LEFT",
+            "lineHeightPx": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.43137254901960786,
+                  "g": 0.43137254901960786,
+                  "b": 0.45098039215686275
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "P - Festivals & Music Events: Mult...",
+          "characters": "Festivals & Music Events: Multi-day bookings with brand integration options. The T-3000 has proven reliability at Bass Coast Festival (2022, 2024), demonstrating resilience in high-traffic, outdoor, low-connectivity environments.",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 20,
+            "fontWeight": 400,
+            "textAlignHorizontal": "LEFT",
+            "lineHeightPx": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.43137254901960786,
+                  "g": 0.43137254901960786,
+                  "b": 0.45098039215686275
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "P - Venues & Nightlife: Monthly le...",
+          "characters": "Venues & Nightlife: Monthly leases for bars and entertainment spaces seeking to monetize \"sober curious\" foot traffic. Installation acts as both a revenue generator (pay-per-play or data-gated access) and a social media amplifier.",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 20,
+            "fontWeight": 400,
+            "textAlignHorizontal": "LEFT",
+            "lineHeightPx": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.43137254901960786,
+                  "g": 0.43137254901960786,
+                  "b": 0.45098039215686275
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "P - Turnkey Hardware + Software Pa...",
+          "characters": "Turnkey Hardware + Software Package: Custom-built units available for purchase by brands, agencies, or venue operators. Price range: $25K–$50K depending on hardware tier and software customization.",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 20,
+            "fontWeight": 400,
+            "textAlignHorizontal": "LEFT",
+            "lineHeightPx": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.43137254901960786,
+                  "g": 0.43137254901960786,
+                  "b": 0.45098039215686275
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "P - SaaS Licensing Model: For buye...",
+          "characters": "SaaS Licensing Model: For buyers who want the software platform (TouchDesigner interface, data capture backend, CRM integrations) without the physical hardware. Annual licensing: $1,500–$2,500 based on feature tier and white-label options.",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 20,
+            "fontWeight": 400,
+            "textAlignHorizontal": "LEFT",
+            "lineHeightPx": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.43137254901960786,
+                  "g": 0.43137254901960786,
+                  "b": 0.45098039215686275
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "P - Maintenance & Updates: Ongoing...",
+          "characters": "Maintenance & Updates: Ongoing support contracts for firmware updates, AI model improvements, and hardware servicing. Annual retainer: $5K–$10K.",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 20,
+            "fontWeight": 400,
+            "textAlignHorizontal": "LEFT",
+            "lineHeightPx": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.43137254901960786,
+                  "g": 0.43137254901960786,
+                  "b": 0.45098039215686275
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "P - The photo booth rental busines...",
+          "characters": "The photo booth rental business model offers compelling margins for owner-operators:",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 20,
+            "fontWeight": 400,
+            "textAlignHorizontal": "LEFT",
+            "lineHeightPx": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.43137254901960786,
+                  "g": 0.43137254901960786,
+                  "b": 0.45098039215686275
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        }
+      ],
+      "constraints": {
+        "horizontal": "MIN",
+        "vertical": "MIN"
+      },
+      "layoutMode": "VERTICAL",
+      "primaryAxisSizingMode": "FIXED",
+      "counterAxisSizingMode": "FIXED",
+      "paddingLeft": 80,
+      "paddingRight": 80,
+      "paddingTop": 80,
+      "paddingBottom": 80,
+      "itemSpacing": 32
+    },
+    {
+      "type": "FRAME",
+      "name": "Slide 9",
+      "width": 1920,
+      "height": 1080,
+      "x": 16160,
+      "y": 0,
+      "backgroundColor": {
+        "r": 1,
+        "g": 1,
+        "b": 1
+      },
+      "children": [
+        {
+          "type": "TEXT",
+          "name": "H2 - The Team...",
+          "characters": "The Team",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 64,
+            "fontWeight": 600,
+            "textAlignHorizontal": "CENTER",
+            "lineHeightPx": 76.8,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.06666666666666667,
+                  "g": 0.06666666666666667,
+                  "b": 0.06666666666666667
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "H4 - Paris Urquhart – Creative Dire...",
+          "characters": "Paris Urquhart – Creative Director & Fabrication",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 32,
+            "fontWeight": 600,
+            "textAlignHorizontal": "CENTER",
+            "lineHeightPx": 38.4,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.06666666666666667,
+                  "g": 0.06666666666666667,
+                  "b": 0.06666666666666667
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "H4 - Andrew Haydock – Co-Founder & ...",
+          "characters": "Andrew Haydock – Co-Founder & Operations",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 32,
+            "fontWeight": 600,
+            "textAlignHorizontal": "CENTER",
+            "lineHeightPx": 38.4,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.06666666666666667,
+                  "g": 0.06666666666666667,
+                  "b": 0.06666666666666667
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "H4 - Track Record...",
+          "characters": "Track Record",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 32,
+            "fontWeight": 600,
+            "textAlignHorizontal": "CENTER",
+            "lineHeightPx": 38.4,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.06666666666666667,
+                  "g": 0.06666666666666667,
+                  "b": 0.06666666666666667
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "P - The T-3000 is designed and bui...",
+          "characters": "The T-3000 is designed and built by the V.H.S Collective—a multidisciplinary team of artists, engineers, and fabricators based in Vancouver, BC. With five successful art installations at Bass Coast Festival and a proven track record in interactive media, the team brings deep technical expertise and production experience to every project.",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 20,
+            "fontWeight": 400,
+            "textAlignHorizontal": "LEFT",
+            "lineHeightPx": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.43137254901960786,
+                  "g": 0.43137254901960786,
+                  "b": 0.45098039215686275
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "P - Paris leads the conceptual vis...",
+          "characters": "Paris leads the conceptual vision and physical build process. With a background in industrial design and CNC fabrication (Fusion 360), Paris has delivered five funded installations at Bass Coast (2019–2024), including the Superlush Tone Generator, The Anomaly, Cryptic Mystic Dragon Automaton, and Windows Vista Home Operating System. Paris brings expertise in framing, art direction, and experiential storytelling that transforms technical systems into memorable brand experiences.",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 20,
+            "fontWeight": 400,
+            "textAlignHorizontal": "LEFT",
+            "lineHeightPx": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.43137254901960786,
+                  "g": 0.43137254901960786,
+                  "b": 0.45098039215686275
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "P - Andrew is a festival operation...",
+          "characters": "Andrew is a festival operations veteran with deep ties to Bass Coast and Shambhala music festivals. He brings expertise in crowd psychology, event logistics, and creating experiences that drive organic engagement. Andrew's understanding of festival culture and attendee behavior is critical to designing installations that capture attention in high-traffic, high-distraction environments. His operational expertise ensures seamless deployment and maximum uptime in challenging conditions.",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 20,
+            "fontWeight": 400,
+            "textAlignHorizontal": "LEFT",
+            "lineHeightPx": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.43137254901960786,
+                  "g": 0.43137254901960786,
+                  "b": 0.45098039215686275
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "P - The V.H.S Collective has secur...",
+          "characters": "The V.H.S Collective has secured five art grants from Bass Coast Festival, demonstrating consistent execution and innovation. Past installations include the Superlush Tone Generator (2019), The Anomaly (2020), T-3000 v1 (2022), Cryptic Mystic Dragon Automaton (2023), and Windows Vista Home Operating System (2023). The team is deeply embedded in the Bass Coast creative community and has proven ability to deliver high-reliability installations in challenging outdoor environments.",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 20,
+            "fontWeight": 400,
+            "textAlignHorizontal": "LEFT",
+            "lineHeightPx": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.43137254901960786,
+                  "g": 0.43137254901960786,
+                  "b": 0.45098039215686275
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        }
+      ],
+      "constraints": {
+        "horizontal": "MIN",
+        "vertical": "MIN"
+      },
+      "layoutMode": "VERTICAL",
+      "primaryAxisSizingMode": "FIXED",
+      "counterAxisSizingMode": "FIXED",
+      "paddingLeft": 80,
+      "paddingRight": 80,
+      "paddingTop": 80,
+      "paddingBottom": 80,
+      "itemSpacing": 32
+    },
+    {
+      "type": "FRAME",
+      "name": "Slide 10",
+      "width": 1920,
+      "height": 1080,
+      "x": 18180,
+      "y": 0,
+      "backgroundColor": {
+        "r": 1,
+        "g": 1,
+        "b": 1
+      },
+      "children": [
+        {
+          "type": "TEXT",
+          "name": "H2 - Let's Build Something Memorabl...",
+          "characters": "Let's Build Something Memorable",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 64,
+            "fontWeight": 600,
+            "textAlignHorizontal": "CENTER",
+            "lineHeightPx": 76.8,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.06666666666666667,
+                  "g": 0.06666666666666667,
+                  "b": 0.06666666666666667
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "P - The T-3000 is available for re...",
+          "characters": "The T-3000 is available for rental, purchase, or custom development. Whether you're planning a corporate activation, festival installation, or permanent venue deployment, we deliver turnkey solutions backed by proven technology and production expertise.",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 20,
+            "fontWeight": 400,
+            "textAlignHorizontal": "LEFT",
+            "lineHeightPx": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.43137254901960786,
+                  "g": 0.43137254901960786,
+                  "b": 0.45098039215686275
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        },
+        {
+          "type": "TEXT",
+          "name": "P - T-3000 by V.H.S Collective\n   ...",
+          "characters": "T-3000 by V.H.S Collective\n                    Built in Vancouver, BC • Powered by UltraLeap & TouchDesigner • Designed for Experiential Marketing Excellence",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 20,
+            "fontWeight": 400,
+            "textAlignHorizontal": "LEFT",
+            "lineHeightPx": 24,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "r": 0.43137254901960786,
+                  "g": 0.43137254901960786,
+                  "b": 0.45098039215686275
+                }
+              }
+            ]
+          },
+          "layoutAlign": "STRETCH"
+        }
+      ],
+      "constraints": {
+        "horizontal": "MIN",
+        "vertical": "MIN"
+      },
+      "layoutMode": "VERTICAL",
+      "primaryAxisSizingMode": "FIXED",
+      "counterAxisSizingMode": "FIXED",
+      "paddingLeft": 80,
+      "paddingRight": 80,
+      "paddingTop": 80,
+      "paddingBottom": 80,
+      "itemSpacing": 32
+    }
+  ]
+}

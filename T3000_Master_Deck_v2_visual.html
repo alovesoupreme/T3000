@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-3000 Interactive Installation | V.H.S</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* T-3000 Arcade Palette - SOLID COLORS ONLY */
+            --night-sky: #1a1a2e;
+            --deep-space: #0f0f1a;
+            --neon-red: #ff4757;
+            --neon-pink: #ff6b81;
+            --electric-blue: #3498db;
+            --sky-blue: #74b9ff;
+            --golden-yellow: #f1c40f;
+            --warm-orange: #e17055;
+            --mint-green: #2ecc71;
+            --soft-pink: #ffb8c6;
+            --purple-accent: #9b59b6;
+            --rainbow-cyan: #00d2d3;
+
+            /* Neutrals */
+            --white: #ffffff;
+            --off-white: #f8f9fa;
+            --light-grey: #e9ecef;
+            --mid-grey: #6c757d;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--night-sky);
+            color: var(--white);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            scroll-behavior: smooth;
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            height: 100vh;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        h1 {
+            font-size: clamp(4rem, 12vw, 10rem);
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            line-height: 0.95;
+        }
+
+        h2 {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            line-height: 1.05;
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        p {
+            font-size: clamp(1rem, 1.5vw, 1.25rem);
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+        }
+
+        .label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--neon-pink);
+        }
+
+        /* Sections */
+        section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(2rem, 8vw, 6rem);
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* ========== HERO SECTION ========== */
+        .hero {
+            background: var(--electric-blue);
+            position: relative;
+            text-align: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(2px 2px at 20px 30px, white, transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+                radial-gradient(1px 1px at 90px 40px, white, transparent),
+                radial-gradient(2px 2px at 130px 80px, rgba(255,255,255,0.6), transparent),
+                radial-gradient(1px 1px at 160px 120px, white, transparent);
+            background-size: 200px 200px;
+            animation: twinkle 4s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Hero arcade illustration */
+        .hero-arcade {
+            max-width: 380px;
+            width: 80%;
+            margin: 0 auto 2rem;
+            animation: float 6s ease-in-out infinite;
+            filter: drop-shadow(0 20px 60px rgba(255, 71, 87, 0.4));
+        }
+
+        .hero-arcade svg {
+            width: 100%;
+            height: auto;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero h1 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .hero .tagline {
+            font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* Ground decoration */
+        .hero-ground {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 20%;
+            background: var(--golden-yellow);
+            z-index: 1;
+        }
+
+        /* Cloud decorations */
+        .cloud {
+            position: absolute;
+            background: var(--mint-green);
+            border-radius: 50px;
+            z-index: 3;
+        }
+        .cloud-1 { width: 80px; height: 50px; top: 8%; right: 5%; }
+        .cloud-2 { width: 60px; height: 40px; bottom: 28%; left: 3%; }
+
+        /* ========== PROBLEM SECTION ========== */
+        .problem-section {
+            background: var(--deep-space);
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 2rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 900px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        .comparison-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .comparison-card.old-way { border-color: rgba(255, 71, 87, 0.4); }
+        .comparison-card.new-way {
+            border-color: rgba(46, 204, 113, 0.4);
+            background: rgba(46, 204, 113, 0.05);
+        }
+
+        .comparison-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .comparison-card h3 { margin-bottom: 1rem; }
+        .comparison-card.old-way h3 { color: var(--neon-red); }
+        .comparison-card.new-way h3 { color: var(--mint-green); }
+
+        .comparison-list {
+            list-style: none;
+            text-align: left;
+        }
+
+        .comparison-list li {
+            padding: 0.6rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+        }
+
+        .old-way .comparison-list li::before { content: '✗'; color: var(--neon-red); font-size: 1.1rem; }
+        .new-way .comparison-list li::before { content: '✓'; color: var(--mint-green); font-size: 1.1rem; }
+
+        .vs-divider {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--golden-yellow);
+            text-shadow: 0 0 20px rgba(241, 196, 15, 0.5);
+        }
+
+        /* ========== STATS SECTION ========== */
+        .stats-section {
+            background: var(--night-sky);
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .stats-row { grid-template-columns: 1fr; }
+        }
+
+        .stat-block {
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-block::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: var(--neon-pink);
+        }
+
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(3.5rem, 8vw, 6rem);
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-block:nth-child(1) .stat-number {
+            color: var(--neon-red);
+        }
+        .stat-block:nth-child(2) .stat-number {
+            color: var(--electric-blue);
+        }
+        .stat-block:nth-child(3) .stat-number {
+            color: var(--mint-green);
+        }
+
+        .stat-label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-context {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* ========== SOLUTION SECTION ========== */
+        .solution-section {
+            background: var(--off-white);
+            color: var(--night-sky);
+        }
+        .solution-section p { color: var(--mid-grey); }
+        .solution-section .label { color: var(--neon-red); }
+
+        .solution-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 900px) {
+            .solution-grid { grid-template-columns: 1fr; gap: 2rem; }
+        }
+
+        .solution-visual-placeholder {
+            width: 100%;
+            aspect-ratio: 1;
+            background: var(--night-sky);
+            border-radius: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.25);
+            font-size: 6rem;
+        }
+
+        .solution-points {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .solution-point {
+            display: flex;
+            gap: 1.25rem;
+            align-items: flex-start;
+        }
+
+        .solution-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--neon-red);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .solution-point h4 {
+            font-size: 1.15rem;
+            margin-bottom: 0.25rem;
+            color: var(--night-sky);
+        }
+
+        .solution-point p {
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* ========== TECH SECTION ========== */
+        .tech-section {
+            background: var(--night-sky);
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 900px) { .tech-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { .tech-grid { grid-template-columns: 1fr; } }
+
+        .tech-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 18px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .tech-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--neon-pink);
+            transform: translateY(-4px);
+        }
+
+        .tech-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 1rem;
+            background: rgba(255, 71, 87, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .tech-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 0.25rem;
+        }
+
+        .tech-desc {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* ========== JOURNEY SECTION ========== */
+        .journey-section {
+            background: var(--deep-space);
+        }
+
+        .journey-flow {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin-top: 3rem;
+            position: relative;
+        }
+
+        .journey-flow::before {
+            content: '';
+            position: absolute;
+            top: 45px;
+            left: 12%;
+            right: 12%;
+            height: 3px;
+            background: var(--neon-pink);
+            z-index: 0;
+        }
+
+        @media (max-width: 900px) {
+            .journey-flow {
+                flex-direction: column;
+                align-items: center;
+            }
+            .journey-flow::before {
+                width: 3px;
+                height: 85%;
+                top: 8%;
+                left: 50%;
+                transform: translateX(-50%);
+                background: var(--neon-pink);
+            }
+        }
+
+        .journey-step {
+            flex: 1;
+            max-width: 160px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 900px) {
+            .journey-step { max-width: 280px; }
+        }
+
+        .journey-icon {
+            width: 90px;
+            height: 90px;
+            background: var(--night-sky);
+            border: 3px solid var(--neon-pink);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1rem;
+            box-shadow: 0 0 25px rgba(255, 107, 129, 0.3);
+        }
+
+        .journey-step:nth-child(2) .journey-icon { border-color: var(--electric-blue); box-shadow: 0 0 25px rgba(52, 152, 219, 0.3); }
+        .journey-step:nth-child(3) .journey-icon { border-color: var(--purple-accent); box-shadow: 0 0 25px rgba(155, 89, 182, 0.3); }
+        .journey-step:nth-child(4) .journey-icon { border-color: var(--golden-yellow); box-shadow: 0 0 25px rgba(241, 196, 15, 0.3); }
+        .journey-step:nth-child(5) .journey-icon { border-color: var(--mint-green); box-shadow: 0 0 25px rgba(46, 204, 113, 0.3); }
+
+        .journey-label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--neon-pink);
+            margin-bottom: 0.3rem;
+        }
+
+        .journey-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 0.3rem;
+        }
+
+        .journey-desc {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.4;
+        }
+
+        /* ========== ECONOMICS SECTION ========== */
+        .economics-section {
+            background: var(--golden-yellow);
+            color: var(--night-sky);
+        }
+        .economics-section .label { color: var(--neon-red); }
+        .economics-section h2 { color: var(--night-sky); }
+        .economics-section p { color: rgba(26, 26, 46, 0.7); }
+
+        .economics-comparison {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        @media (max-width: 768px) { .economics-comparison { grid-template-columns: 1fr; } }
+
+        .economics-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .economics-card.highlight {
+            background: var(--night-sky);
+            color: var(--white);
+            transform: scale(1.05);
+        }
+        .economics-card.highlight .economics-value { color: var(--mint-green); }
+        .economics-card.highlight .economics-label { color: var(--white); }
+        .economics-card.highlight .economics-desc { color: rgba(255, 255, 255, 0.6); }
+
+        .economics-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--neon-red);
+            line-height: 1;
+            margin-bottom: 0.25rem;
+        }
+
+        .economics-label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--night-sky);
+            margin-bottom: 0.75rem;
+        }
+
+        .economics-desc {
+            font-size: 0.85rem;
+            color: var(--mid-grey);
+        }
+
+        /* ========== MARKET SECTION ========== */
+        .market-section {
+            background: var(--night-sky);
+        }
+
+        .market-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+            margin-top: 2.5rem;
+        }
+
+        @media (max-width: 768px) { .market-grid { grid-template-columns: 1fr; } }
+
+        .market-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 18px;
+            padding: 1.5rem;
+            display: flex;
+            gap: 1.25rem;
+            align-items: flex-start;
+            transition: all 0.3s ease;
+        }
+
+        .market-card:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 255, 255, 0.12);
+        }
+
+        .market-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--neon-pink);
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .market-content h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 0.25rem;
+        }
+
+        .market-content p {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin: 0;
+        }
+
+        /* ========== BUSINESS SECTION ========== */
+        .business-section {
+            background: #16213e;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        @media (max-width: 768px) { .pricing-grid { grid-template-columns: 1fr; } }
+
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 2rem;
+        }
+
+        .pricing-card h3 {
+            color: var(--neon-pink);
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 1.25rem;
+        }
+
+        .pricing-card:first-child h3::before { content: '🎪'; font-size: 1.3rem; }
+        .pricing-card:last-child h3::before { content: '💰'; font-size: 1.3rem; }
+
+        .pricing-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .pricing-item:last-child { border-bottom: none; }
+
+        .pricing-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.25rem;
+        }
+
+        .pricing-item-name { font-weight: 600; color: var(--white); font-size: 0.95rem; }
+        .pricing-item-price {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            color: var(--mint-green);
+        }
+        .pricing-item-desc { font-size: 0.8rem; color: rgba(255, 255, 255, 0.5); }
+
+        /* ========== TEAM SECTION ========== */
+        .team-section {
+            background: var(--off-white);
+            color: var(--night-sky);
+        }
+        .team-section .label { color: var(--neon-red); }
+        .team-section p { color: var(--mid-grey); }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        @media (max-width: 768px) { .team-grid { grid-template-columns: 1fr; } }
+
+        .team-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+        }
+
+        .team-initials {
+            width: 70px;
+            height: 70px;
+            background: var(--neon-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 1.25rem;
+        }
+
+        .team-card h4 {
+            font-size: 1.15rem;
+            color: var(--night-sky);
+            margin-bottom: 0.15rem;
+        }
+
+        .team-role {
+            font-size: 0.85rem;
+            color: var(--neon-red);
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+
+        .team-bio {
+            font-size: 0.9rem;
+            color: var(--mid-grey);
+            line-height: 1.55;
+        }
+
+        .track-record {
+            background: var(--night-sky);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .track-record h4 { color: var(--white); margin-bottom: 0.75rem; }
+
+        .track-badges {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .badge {
+            background: rgba(255, 107, 129, 0.15);
+            border: 1px solid var(--neon-pink);
+            border-radius: 100px;
+            padding: 0.4rem 1rem;
+            font-size: 0.8rem;
+            color: var(--white);
+        }
+
+        /* ========== CTA SECTION ========== */
+        .cta-section {
+            background: var(--neon-red);
+            text-align: center;
+        }
+
+        .cta-section h2 { color: var(--white); margin-bottom: 0.75rem; }
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 550px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 14px;
+            padding: 1.25rem;
+        }
+
+        .contact-card .contact-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0.35rem;
+        }
+
+        .contact-card .contact-value {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .contact-card a { color: var(--white); text-decoration: none; }
+        .contact-card a:hover { text-decoration: underline; }
+
+        .cta-footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .cta-footer p {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* ========== NAVIGATION ========== */
+        .progress-dots {
+            position: fixed;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .progress-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .progress-dot.active {
+            background: var(--neon-pink);
+            border-color: var(--neon-pink);
+            box-shadow: 0 0 12px var(--neon-pink);
+        }
+
+        .progress-dot:hover { transform: scale(1.3); }
+
+        @media (max-width: 768px) { .progress-dots { display: none; } }
+
+        .scroll-progress {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--neon-pink);
+            transform-origin: left;
+            transform: scaleX(0);
+            z-index: 9999;
+        }
+
+        /* ========== ANIMATIONS ========== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.92);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .scale-in.visible { opacity: 1; transform: scale(1); }
+    </style>
+</head>
+<body>
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <div class="progress-dots" id="progressDots"></div>
+
+    <!-- 01. HERO -->
+    <section class="hero">
+        <div class="hero-ground"></div>
+        <div class="cloud cloud-1"></div>
+        <div class="cloud cloud-2"></div>
+        <div class="hero-content">
+            <div class="hero-arcade">
+                <svg viewBox="0 0 400 450" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Arcade Cabinet Body -->
+                    <rect x="80" y="60" width="240" height="340" rx="20" fill="#ff6b81" stroke="#ff4757" stroke-width="4"/>
+
+                    <!-- Screen Area (dark) -->
+                    <rect x="100" y="80" width="200" height="150" rx="10" fill="#1a1a2e"/>
+
+                    <!-- Stars in screen -->
+                    <circle cx="130" cy="100" r="2" fill="white" opacity="0.9"/>
+                    <circle cx="180" cy="120" r="1.5" fill="white" opacity="0.7"/>
+                    <circle cx="250" cy="95" r="2" fill="white" opacity="0.8"/>
+                    <circle cx="220" cy="140" r="1" fill="white" opacity="0.6"/>
+                    <circle cx="160" cy="160" r="1.5" fill="white" opacity="0.75"/>
+                    <circle cx="270" cy="170" r="2" fill="white" opacity="0.85"/>
+                    <circle cx="120" cy="180" r="1" fill="white" opacity="0.5"/>
+                    <circle cx="200" cy="105" r="1.5" fill="white" opacity="0.9"/>
+
+                    <!-- T-3000 Text on Screen -->
+                    <text x="200" y="195" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="36" font-weight="700" fill="white">T-3000</text>
+
+                    <!-- Rainbow Stripe -->
+                    <rect x="110" y="80" width="18" height="150" rx="2" fill="#ff4757"/>
+                    <rect x="110" y="105" width="18" height="25" fill="#e17055"/>
+                    <rect x="110" y="130" width="18" height="25" fill="#f1c40f"/>
+                    <rect x="110" y="155" width="18" height="25" fill="#2ecc71"/>
+                    <rect x="110" y="180" width="18" height="25" fill="#3498db"/>
+                    <rect x="110" y="205" width="18" height="25" fill="#9b59b6"/>
+
+                    <!-- Control Panel Area -->
+                    <rect x="100" y="250" width="200" height="80" rx="8" fill="#1a1a2e"/>
+
+                    <!-- Joystick -->
+                    <circle cx="160" cy="290" r="20" fill="#2d3436"/>
+                    <circle cx="160" cy="285" r="8" fill="#ff4757"/>
+                    <rect x="156" y="265" width="8" height="20" rx="3" fill="#ff4757"/>
+
+                    <!-- Buttons -->
+                    <circle cx="220" cy="280" r="12" fill="#2ecc71"/>
+                    <circle cx="250" cy="280" r="12" fill="#3498db"/>
+                    <circle cx="235" cy="305" r="12" fill="#f1c40f"/>
+
+                    <!-- Cabinet Base -->
+                    <rect x="100" y="350" width="200" height="40" rx="5" fill="#ff4757"/>
+
+                    <!-- Cabinet Legs -->
+                    <rect x="110" y="390" width="30" height="20" fill="#1a1a2e"/>
+                    <rect x="260" y="390" width="30" height="20" fill="#1a1a2e"/>
+
+                    <!-- Top Marquee -->
+                    <rect x="90" y="50" width="220" height="20" rx="5" fill="#ff4757"/>
+
+                    <!-- Side Details -->
+                    <rect x="85" y="100" width="8" height="200" rx="3" fill="#ffb8c6"/>
+                    <rect x="307" y="100" width="8" height="200" rx="3" fill="#ffb8c6"/>
+                </svg>
+            </div>
+            <span class="label">Experiential Marketing Technology</span>
+            <h1>T-3000</h1>
+            <p class="tagline">The Digital Mirror that captures verified leads through interactive AR experiences</p>
+        </div>
+    </section>
+
+    <!-- 02. PROBLEM -->
+    <section class="problem-section">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 1.5rem;">
+                <span class="label">The Problem</span>
+                <h2>Static Booths Are Dying</h2>
+            </div>
+            <div class="comparison-grid">
+                <div class="comparison-card old-way">
+                    <span class="comparison-icon">📋</span>
+                    <h3>Traditional Approach</h3>
+                    <ul class="comparison-list">
+                        <li>Clipboard surveys nobody fills</li>
+                        <li>Banner blindness (86% ignore)</li>
+                        <li>$463 average cost per lead</li>
+                        <li>0.06% click-through rate</li>
+                        <li>Forgettable swag bags</li>
+                    </ul>
+                </div>
+                <div class="vs-divider">VS</div>
+                <div class="comparison-card new-way">
+                    <span class="comparison-icon">🕹️</span>
+                    <h3>T-3000 Experience</h3>
+                    <ul class="comparison-list">
+                        <li>Gamified AR captures attention</li>
+                        <li>4.5 min average engagement</li>
+                        <li>$20 cost per verified lead</li>
+                        <li>Zero-party data collection</li>
+                        <li>Shareable content = reach</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 03. STATS -->
+    <section class="stats-section">
+        <div class="container">
+            <div style="text-align: center;">
+                <span class="label">By The Numbers</span>
+                <h2>The Engagement Gap</h2>
+            </div>
+            <div class="stats-row">
+                <div class="stat-block">
+                    <div class="stat-number">86%</div>
+                    <div class="stat-label">Banner Blindness</div>
+                    <div class="stat-context">Consumers ignore ad content</div>
+                </div>
+                <div class="stat-block">
+                    <div class="stat-number">2×</div>
+                    <div class="stat-label">Conversion Rate</div>
+                    <div class="stat-context">Gamified vs static content</div>
+                </div>
+                <div class="stat-block">
+                    <div class="stat-number">85%</div>
+                    <div class="stat-label">Purchase Intent</div>
+                    <div class="stat-context">Lift after experiential activation</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 04. SOLUTION -->
+    <section class="solution-section">
+        <div class="container">
+            <div class="solution-grid">
+                <div class="solution-visual-placeholder">🕹️</div>
+                <div class="solution-points">
+                    <div style="margin-bottom: 0.75rem;">
+                        <span class="label">The Solution</span>
+                        <h2 style="color: var(--night-sky);">AR Magic in a Retro Shell</h2>
+                    </div>
+                    <div class="solution-point">
+                        <div class="solution-icon">✋</div>
+                        <div>
+                            <h4>Hand Tracking Magic</h4>
+                            <p>UltraLeap sensors track every gesture—no controllers needed</p>
+                        </div>
+                    </div>
+                    <div class="solution-point">
+                        <div class="solution-icon">🎮</div>
+                        <div>
+                            <h4>Nostalgia Bypasses Skepticism</h4>
+                            <p>Retro arcade shell disarms resistance to "marketing kiosks"</p>
+                        </div>
+                    </div>
+                    <div class="solution-point">
+                        <div class="solution-icon">📱</div>
+                        <div>
+                            <h4>QR = Lead Capture</h4>
+                            <p>Scan for your photo. No forms. No survey fatigue.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 05. TECH -->
+    <section class="tech-section">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 0.5rem;">
+                <span class="label">Technical Specs</span>
+                <h2>Built for the Real World</h2>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-icon">⚡</div>
+                    <div class="tech-name">UltraLeap × 2</div>
+                    <div class="tech-desc">Sub-mm hand tracking @ 90Hz</div>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">🎨</div>
+                    <div class="tech-name">TouchDesigner</div>
+                    <div class="tech-desc">Real-time generative visuals</div>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">💡</div>
+                    <div class="tech-name">LED Matrix</div>
+                    <div class="tech-desc">360° visual feedback</div>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">🖥️</div>
+                    <div class="tech-name">HD Display</div>
+                    <div class="tech-desc">Crystal-clear AR compositing</div>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">📡</div>
+                    <div class="tech-name">Offline-First</div>
+                    <div class="tech-desc">Works without network</div>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">🔨</div>
+                    <div class="tech-name">CNC Fabrication</div>
+                    <div class="tech-desc">Industrial-grade build</div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 2.5rem; padding: 1.5rem; background: rgba(255,255,255,0.03); border-radius: 14px;">
+                <p style="font-size: 1.1rem; color: var(--white); margin: 0;"><strong>Footprint:</strong> 150cm × 150cm × 200cm</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 06. JOURNEY -->
+    <section class="journey-section">
+        <div class="container">
+            <div style="text-align: center;">
+                <span class="label">Experience Design</span>
+                <h2>60-Second Lead Capture</h2>
+            </div>
+            <div class="journey-flow">
+                <div class="journey-step">
+                    <div class="journey-icon">👀</div>
+                    <div class="journey-label">Step 1</div>
+                    <div class="journey-title">Discover</div>
+                    <div class="journey-desc">Drawn by retro glow</div>
+                </div>
+                <div class="journey-step">
+                    <div class="journey-icon">🖐️</div>
+                    <div class="journey-label">Step 2</div>
+                    <div class="journey-title">Engage</div>
+                    <div class="journey-desc">Sensors detect instantly</div>
+                </div>
+                <div class="journey-step">
+                    <div class="journey-icon">✨</div>
+                    <div class="journey-label">Step 3</div>
+                    <div class="journey-title">Immerse</div>
+                    <div class="journey-desc">4.5 min avg dwell</div>
+                </div>
+                <div class="journey-step">
+                    <div class="journey-icon">📸</div>
+                    <div class="journey-label">Step 4</div>
+                    <div class="journey-title">Capture</div>
+                    <div class="journey-desc">QR scan = lead</div>
+                </div>
+                <div class="journey-step">
+                    <div class="journey-icon">📣</div>
+                    <div class="journey-label">Step 5</div>
+                    <div class="journey-title">Amplify</div>
+                    <div class="journey-desc">72% share to social</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 07. ECONOMICS -->
+    <section class="economics-section">
+        <div class="container">
+            <div style="text-align: center;">
+                <span class="label">Lead Generation</span>
+                <h2>Cost-Per-Lead Arbitrage</h2>
+            </div>
+            <div class="economics-comparison">
+                <div class="economics-card">
+                    <div class="economics-value">$463</div>
+                    <div class="economics-label">LinkedIn B2B</div>
+                    <div class="economics-desc">High-intent, declining attribution</div>
+                </div>
+                <div class="economics-card highlight">
+                    <div class="economics-value">$20</div>
+                    <div class="economics-label">T-3000 CPL</div>
+                    <div class="economics-desc">Verified, zero-party, compliant</div>
+                </div>
+                <div class="economics-card">
+                    <div class="economics-value">0.06%</div>
+                    <div class="economics-label">Banner CTR</div>
+                    <div class="economics-desc">99.94% failure rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 08. MARKET -->
+    <section class="market-section">
+        <div class="container">
+            <div style="text-align: center;">
+                <span class="label">Market Intelligence</span>
+                <h2>The Experience Economy</h2>
+                <p style="max-width: 650px; margin: 0.75rem auto 0;">$55B market growing at 28.6% CAGR. Brands reallocating from digital ads to immersive activations.</p>
+            </div>
+            <div class="market-grid">
+                <div class="market-card">
+                    <div class="market-number">28%</div>
+                    <div class="market-content">
+                        <h4>CAGR Immersive Tech</h4>
+                        <p>AR/VR quadruples to $29.7B by 2030</p>
+                    </div>
+                </div>
+                <div class="market-card">
+                    <div class="market-number">74%</div>
+                    <div class="market-content">
+                        <h4>Fortune 1000 Increasing</h4>
+                        <p>Event budgets rising in 2025</p>
+                    </div>
+                </div>
+                <div class="market-card">
+                    <div class="market-number">34%</div>
+                    <div class="market-content">
+                        <h4>Pop-Up ROI</h4>
+                        <p>Average return on activations</p>
+                    </div>
+                </div>
+                <div class="market-card">
+                    <div class="market-number">20%</div>
+                    <div class="market-content">
+                        <h4>Less Alcohol</h4>
+                        <p>Gen Z driving eatertainment pivot</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 09. BUSINESS -->
+    <section class="business-section">
+        <div class="container">
+            <div style="text-align: center;">
+                <span class="label">Revenue Streams</span>
+                <h2>Rental + Sales Model</h2>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Rental Services</h3>
+                    <div class="pricing-item">
+                        <div class="pricing-item-header">
+                            <span class="pricing-item-name">Corporate Events</span>
+                            <span class="pricing-item-price">$2K–$5K/day</span>
+                        </div>
+                        <div class="pricing-item-desc">Turnkey activation + customization</div>
+                    </div>
+                    <div class="pricing-item">
+                        <div class="pricing-item-header">
+                            <span class="pricing-item-name">Festivals</span>
+                            <span class="pricing-item-price">Multi-day rates</span>
+                        </div>
+                        <div class="pricing-item-desc">Proven at Bass Coast 2022, 2024</div>
+                    </div>
+                    <div class="pricing-item">
+                        <div class="pricing-item-header">
+                            <span class="pricing-item-name">Venues</span>
+                            <span class="pricing-item-price">Monthly lease</span>
+                        </div>
+                        <div class="pricing-item-desc">Revenue generator for nightlife</div>
+                    </div>
+                </div>
+                <div class="pricing-card">
+                    <h3>Unit Sales</h3>
+                    <div class="pricing-item">
+                        <div class="pricing-item-header">
+                            <span class="pricing-item-name">Turnkey Package</span>
+                            <span class="pricing-item-price">$25K–$50K</span>
+                        </div>
+                        <div class="pricing-item-desc">Hardware + software + custom</div>
+                    </div>
+                    <div class="pricing-item">
+                        <div class="pricing-item-header">
+                            <span class="pricing-item-name">SaaS Licensing</span>
+                            <span class="pricing-item-price">$1.5K–$2.5K/yr</span>
+                        </div>
+                        <div class="pricing-item-desc">Software platform only</div>
+                    </div>
+                    <div class="pricing-item">
+                        <div class="pricing-item-header">
+                            <span class="pricing-item-name">Maintenance</span>
+                            <span class="pricing-item-price">$5K–$10K/yr</span>
+                        </div>
+                        <div class="pricing-item-desc">Updates + support + servicing</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. TEAM -->
+    <section class="team-section">
+        <div class="container">
+            <div style="text-align: center;">
+                <span class="label">V.H.S Collective</span>
+                <h2 style="color: var(--night-sky);">The Team</h2>
+                <p style="max-width: 600px; margin: 0.5rem auto 0;">Vancouver-based artists, engineers & fabricators. 5 successful Bass Coast installations.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-initials">PU</div>
+                    <h4>Paris Urquhart</h4>
+                    <div class="team-role">Creative Director & Fabrication</div>
+                    <p class="team-bio">Industrial design + CNC fabrication. 5 funded Bass Coast installations including Superlush, The Anomaly, and Cryptic Mystic Dragon.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-initials">AH</div>
+                    <h4>Andrew Haydock</h4>
+                    <div class="team-role">Co-Founder & Operations</div>
+                    <p class="team-bio">Festival operations veteran. Deep ties to Bass Coast and Shambhala. Expertise in crowd psychology and organic engagement.</p>
+                </div>
+            </div>
+            <div class="track-record">
+                <h4 style="color: var(--white);">Track Record</h4>
+                <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem;">5 Art Grants from Bass Coast Festival</p>
+                <div class="track-badges">
+                    <span class="badge">Superlush 2019</span>
+                    <span class="badge">The Anomaly 2020</span>
+                    <span class="badge">T-3000 v1 2022</span>
+                    <span class="badge">Dragon 2023</span>
+                    <span class="badge">Windows Vista 2023</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <span class="label" style="color: rgba(255,255,255,0.7);">Ready to Deploy?</span>
+            <h2>Let's Build Something Memorable</h2>
+            <p>Available for rental, purchase, or custom development. Turnkey solutions backed by proven technology.</p>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-label">Contact</div>
+                    <div class="contact-value">Paris Urquhart</div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-label">Email</div>
+                    <div class="contact-value"><a href="mailto:ParisUrquhartDesign@gmail.com">ParisUrquhartDesign@gmail.com</a></div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-label">Phone</div>
+                    <div class="contact-value"><a href="tel:+16047003589">(604) 700-3589</a></div>
+                </div>
+            </div>
+            <div class="cta-footer">
+                <p><strong>T-3000 by V.H.S Collective</strong><br>
+                Built in Vancouver • Powered by UltraLeap & TouchDesigner</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Scroll Progress
+        const scrollProgress = document.getElementById('scrollProgress');
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset;
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            scrollProgress.style.transform = `scaleX(${scrollTop / scrollHeight})`;
+        });
+
+        // Progress Dots
+        const sections = document.querySelectorAll('section');
+        const progressDots = document.getElementById('progressDots');
+        sections.forEach((section, index) => {
+            const dot = document.createElement('div');
+            dot.className = 'progress-dot';
+            dot.addEventListener('click', () => section.scrollIntoView({ behavior: 'smooth' }));
+            progressDots.appendChild(dot);
+        });
+
+        // Active dot observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const index = Array.from(sections).indexOf(entry.target);
+                    document.querySelectorAll('.progress-dot').forEach((dot, i) => {
+                        dot.classList.toggle('active', i === index);
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+        sections.forEach(section => observer.observe(section));
+
+        // Scroll animations
+        const animObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1, rootMargin: '-50px' });
+
+        document.querySelectorAll('.stat-block, .tech-card, .market-card, .comparison-card, .journey-step, .team-card, .pricing-card, .economics-card').forEach(el => {
+            el.classList.add('scale-in');
+            animObserver.observe(el);
+        });
+
+        // Counter animation
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.dataset.animated) {
+                    entry.target.dataset.animated = 'true';
+                    const text = entry.target.textContent;
+                    const match = text.match(/(\d+)/);
+                    if (match) {
+                        const target = parseInt(match[1]);
+                        const prefix = text.slice(0, text.indexOf(match[1]));
+                        const suffix = text.slice(text.indexOf(match[1]) + match[1].length);
+                        let current = 0;
+                        const increment = target / 50;
+                        const animate = () => {
+                            current += increment;
+                            if (current < target) {
+                                entry.target.textContent = prefix + Math.floor(current) + suffix;
+                                requestAnimationFrame(animate);
+                            } else {
+                                entry.target.textContent = text;
+                            }
+                        };
+                        animate();
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+        document.querySelectorAll('.stat-number, .economics-value, .market-number').forEach(el => counterObserver.observe(el));
+    </script>
+</body>
+</html>

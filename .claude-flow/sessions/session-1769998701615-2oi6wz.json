@@ -1,0 +1,143 @@
+{
+  "sessionId": "session-1769998701615-2oi6wz",
+  "savedAt": "2026-02-02T02:18:21.616Z",
+  "stats": {
+    "tasks": 4,
+    "agents": 5,
+    "memoryEntries": 0,
+    "totalSize": 4899
+  },
+  "data": {
+    "tasks": {
+      "tasks": {
+        "task-1769992475834-oi82z6": {
+          "taskId": "task-1769992475834-oi82z6",
+          "type": "implementation",
+          "description": "Enhance Slide9_Traction.tsx: Add animated bar chart with growth from 0 to final height using progressFill animation. Add AnimatedCounter for all metrics (6000+ attendees, 89% engagement, etc). Read current file first at /Users/mac/Documents/Coding /T3000/src/components/slides/Slide9_Traction.tsx. Use animations from /src/lib/animations.ts and AnimatedCounter from /src/components/ui/micro-interactions.tsx",
+          "priority": "normal",
+          "status": "pending",
+          "progress": 0,
+          "assignedTo": [],
+          "tags": [],
+          "createdAt": "2026-02-02T00:34:35.834Z",
+          "startedAt": null,
+          "completedAt": null
+        },
+        "task-1769992483124-4zhgcm": {
+          "taskId": "task-1769992483124-4zhgcm",
+          "type": "implementation",
+          "description": "Enhance Slide10_Competition_V2.tsx: Add progressive radar chart render (animate from center outward). Add animated radar sweep overlay. Add card entrance with stagger using staggerContainer. Add hover state that expands cards with scale transform. Read file at /Users/mac/Documents/Coding /T3000/src/components/slides/Slide10_Competition_V2.tsx. Use animations from /src/lib/animations.ts",
+          "priority": "normal",
+          "status": "pending",
+          "progress": 0,
+          "assignedTo": [],
+          "tags": [],
+          "createdAt": "2026-02-02T00:34:43.124Z",
+          "startedAt": null,
+          "completedAt": null
+        },
+        "task-1769992489687-gyss1t": {
+          "taskId": "task-1769992489687-gyss1t",
+          "type": "implementation",
+          "description": "Enhance Slide12_Team.tsx: Wrap team cards with HolographicCard component for 3D mouse tracking. Add ParticleField around avatars. Add popIn animation for skill badges in sequence. Add hoverLift animation on cards. Read file at /Users/mac/Documents/Coding /T3000/src/components/slides/Slide12_Team.tsx. Use HolographicCard and ParticleField from /src/components/ui/micro-interactions.tsx and animations from /src/lib/animations.ts",
+          "priority": "normal",
+          "status": "pending",
+          "progress": 0,
+          "assignedTo": [],
+          "tags": [],
+          "createdAt": "2026-02-02T00:34:49.687Z",
+          "startedAt": null,
+          "completedAt": null
+        },
+        "task-1769996646290-ycqxhh": {
+          "taskId": "task-1769996646290-ycqxhh",
+          "type": "implementation",
+          "description": "Add professional scroll-snap and smooth animations to T3000_Master_Deck.html",
+          "priority": "normal",
+          "status": "pending",
+          "progress": 0,
+          "assignedTo": [],
+          "tags": [],
+          "createdAt": "2026-02-02T01:44:06.290Z",
+          "startedAt": null,
+          "completedAt": null
+        }
+      },
+      "version": "3.0.0"
+    },
+    "agents": {
+      "agents": {
+        "agent-1769992345569-j6e23r": {
+          "agentId": "agent-1769992345569-j6e23r",
+          "agentType": "coder",
+          "status": "idle",
+          "health": 1,
+          "taskCount": 0,
+          "config": {
+            "provider": "anthropic",
+            "task": "Enhance Slide3_Market.tsx with progressive chart animations, animated counter for .35B value, hover tooltips on data points, and pulsing glow on TAM/SAM/SOM bars. Use animations from /src/lib/animations.ts and AnimatedCounter from /src/components/ui/micro-interactions.tsx"
+          },
+          "createdAt": "2026-02-02T00:32:25.572Z",
+          "model": "sonnet",
+          "modelRoutedBy": "router"
+        },
+        "agent-1769992352003-59gt5c": {
+          "agentId": "agent-1769992352003-59gt5c",
+          "agentType": "coder",
+          "status": "idle",
+          "health": 1,
+          "taskCount": 0,
+          "config": {
+            "provider": "anthropic",
+            "task": "Enhance Slide9_Traction.tsx with animated bar chart (growth from 0 to final height), counter animations for metrics using AnimatedCounter component, and festival crowd wave visualization. Use animations from /src/lib/animations.ts"
+          },
+          "createdAt": "2026-02-02T00:32:32.007Z",
+          "model": "sonnet",
+          "modelRoutedBy": "router"
+        },
+        "agent-1769992357370-tv18ur": {
+          "agentId": "agent-1769992357370-tv18ur",
+          "agentType": "coder",
+          "status": "idle",
+          "health": 1,
+          "taskCount": 0,
+          "config": {
+            "provider": "anthropic",
+            "task": "Enhance Slide10_Competition_V2.tsx with progressive radar chart render (center to outward), animated radar sweep overlay, card entrance with stagger delay, and hover state that expands cards. Use animations from /src/lib/animations.ts"
+          },
+          "createdAt": "2026-02-02T00:32:37.373Z",
+          "model": "sonnet",
+          "modelRoutedBy": "router"
+        },
+        "agent-1769992363619-e286yc": {
+          "agentId": "agent-1769992363619-e286yc",
+          "agentType": "coder",
+          "status": "idle",
+          "health": 1,
+          "taskCount": 0,
+          "config": {
+            "provider": "anthropic",
+            "task": "Enhance Slide12_Team.tsx with circular wipe reveal for profile photos, skill badges that pop in sequence, card lift with shadow depth on hover, and subtle particle effects around avatars using ParticleField. Use animations from /src/lib/animations.ts and HolographicCard from /src/components/ui/micro-interactions.tsx"
+          },
+          "createdAt": "2026-02-02T00:32:43.623Z",
+          "model": "sonnet",
+          "modelRoutedBy": "router"
+        },
+        "agent-1769995795145-xolkm4": {
+          "agentId": "agent-1769995795145-xolkm4",
+          "agentType": "coder",
+          "status": "idle",
+          "health": 1,
+          "taskCount": 0,
+          "config": {
+            "provider": "anthropic"
+          },
+          "createdAt": "2026-02-02T01:29:55.145Z",
+          "model": "sonnet",
+          "modelRoutedBy": "default"
+        }
+      },
+      "version": "3.0.0"
+    }
+  }
+}
